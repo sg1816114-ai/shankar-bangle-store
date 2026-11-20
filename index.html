@@ -1,0 +1,3083 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shankar Bangle Store | Firozabad</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Playfair Display, Plus Jakarta Sans, Noto Sans Devanagari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            royal: {
+              950: '#060b18',
+              900: '#0a162a',
+              850: '#10203a',
+              800: '#162b4e',
+              750: '#1e3863',
+            },
+            gold: {
+              300: '#fef08a',
+              400: '#facc15',
+              500: '#d4af37',
+              600: '#b89628',
+              700: '#94761e',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Sleek custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060b18;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #d4af37;
+      border-radius: 9999px;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef08a 35%, #facc15 65%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-panel {
+      background: rgba(10, 22, 42, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .glass-card {
+      background: rgba(16, 32, 58, 0.78);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 16px rgba(212, 175, 55, 0.35); }
+      50% { box-shadow: 0 0 28px rgba(212, 175, 55, 0.75); }
+    }
+    .pulse-glow {
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-royal-950 text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-royal-950">
+
+  <!-- ================= OWNER EDIT MODE BANNER ================= -->
+  <div id="ownerActiveBanner" class="hidden bg-gradient-to-r from-amber-600 via-gold-600 to-amber-700 text-royal-950 px-4 py-2.5 text-xs font-bold sticky top-0 z-50 shadow-xl">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-lock-open text-sm"></i>
+        <span id="ownerBannerText">Owner Mode Active: Changes are saved to the live website for all visitors.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="openBrandingModal()" class="px-3 py-1 bg-royal-900 text-gold-300 rounded-lg hover:bg-black text-xs font-bold transition flex items-center gap-1.5 shadow border border-gold-400/40">
+          <i class="fa-solid fa-image"></i> <span data-i18n="editBrandingBtn">Change Logo &amp; Banner</span>
+        </button>
+        <button onclick="openHomeCategoryEditor()" class="px-3 py-1 bg-royal-900 text-gold-300 rounded-lg hover:bg-black text-xs font-bold transition flex items-center gap-1.5 shadow border border-gold-400/30">
+          <i class="fa-solid fa-images"></i> Edit Home Categories
+        </button>
+        <button onclick="openAddDesignModal()" class="px-3 py-1 bg-royal-950 text-gold-300 rounded-lg hover:bg-black text-xs font-bold transition flex items-center gap-1.5 shadow">
+          <i class="fa-solid fa-plus-circle"></i> <span data-i18n="addDesignBtn">+ Add Design</span>
+        </button>
+        <button onclick="toggleOwnerMode(false)" class="px-2.5 py-1 bg-white/25 hover:bg-white/40 text-royal-950 rounded-lg text-xs font-bold transition">
+          <span data-i18n="exitOwnerBtn">Exit Owner Mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOP STRIP (NO MOBILE NUMBER IN TOP MIDDLE) ================= -->
+  <div class="bg-royal-950 border-b border-gold-500/20 text-xs py-2 px-4 z-40 relative">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <!-- Left Store Location Info -->
+      <div class="flex items-center space-x-2 text-slate-300">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-300 font-semibold text-[11px] border border-gold-500/40">
+          <i class="fa-solid fa-gem mr-1 text-[10px]"></i> <span data-i18n="topBadge">Exclusive Showcase</span>
+        </span>
+        <span class="text-slate-400 text-xs sm:text-sm">| <span data-i18n="marketLoc">Ramchandra Paliwal Market, Firozabad</span></span>
+        <span class="hidden md:inline text-gold-400/90 font-medium">| Sandeep Gupta</span>
+      </div>
+
+      <!-- Right Controls: Language Switcher & Owner Login (Clean, No Phone in top strip) -->
+      <div class="flex items-center space-x-2.5">
+        <!-- Bilingual English/Hindi Toggle Button -->
+        <button 
+          onclick="toggleLanguage()" 
+          id="langToggleBtn" 
+          class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/15 hover:bg-gold-500/25 border border-gold-500/40 text-gold-300 font-bold text-xs transition transform active:scale-95 shadow-sm"
+          title="Switch Language / भाषा बदलें"
+        >
+          <i class="fa-solid fa-language text-sm text-gold-400"></i>
+          <span id="langToggleLabel">🇮🇳 हिंदी में देखें</span>
+        </button>
+
+        <!-- Owner Mode Trigger Button -->
+        <button 
+          id="ownerModeNavBtn" 
+          onclick="handleOwnerModeClick()" 
+          class="px-2.5 py-1 rounded-md text-[11px] font-semibold transition border border-gold-500/30 text-gold-300/80 hover:text-gold-300 hover:border-gold-400 flex items-center gap-1"
+          title="Owner Switch for In-Stock / On-Order"
+        >
+          <i class="fa-solid fa-sliders text-[10px]"></i>
+          <span id="ownerBtnLabel" data-i18n="ownerLogin">Owner Login</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN HEADER NAVIGATION WITH DUAL PAGE SWITCHER ================= -->
+  <header class="bg-royal-950/95 backdrop-blur-md border-b border-gold-500/20 sticky top-0 z-30 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Identity with Smart Logo Container (No Subheading) -->
+        <div onclick="navigateTo('home')" class="flex items-center space-x-3 group cursor-pointer">
+          <div class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-gold-400/80 shadow-lg shadow-gold-500/30 group-hover:scale-105 transition-transform shrink-0 bg-royal-900 flex items-center justify-center">
+            <!-- Real Image element (loads the ImageKit logo or owner-selected image) -->
+            <img 
+              id="headerLogoImg" 
+              src="https://ik.imagekit.io/xpryz873w/Image%20for%20website/Logo.png?updatedAt=1794470413295" 
+              alt="Shankar Bangle Store Official Logo" 
+              class="w-full h-full object-cover"
+              onload="handleLogoLoadSuccess(this)"
+              onerror="handleLogoLoadError(this)"
+            >
+            <!-- Embedded Vector SVG Medallion Fallback -->
+            <div id="headerLogoFallback" class="w-full h-full hidden">
+              <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="sbGoldBorder" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fff8db" />
+                    <stop offset="60%" stop-color="#d4af37" />
+                    <stop offset="100%" stop-color="#856404" />
+                  </radialGradient>
+                  <linearGradient id="sbDiscLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ea580c" />
+                    <stop offset="100%" stop-color="#b45309" />
+                  </linearGradient>
+                  <linearGradient id="sbDiscRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1e3a8a" />
+                    <stop offset="100%" stop-color="#091834" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="98" fill="url(#sbGoldBorder)" stroke="#594200" stroke-width="2"/>
+                <circle cx="100" cy="100" r="92" fill="#0b172a"/>
+                <path d="M 100,8 A 92,92 0 0,0 100,192 Z" fill="url(#sbDiscLeft)"/>
+                <path d="M 100,8 A 92,92 0 0,1 100,192 Z" fill="url(#sbDiscRight)"/>
+                <circle cx="100" cy="100" r="76" fill="none" stroke="#facc15" stroke-width="5" stroke-dasharray="14 6" opacity="0.85"/>
+                <path d="M 142,38 L 152,48 M 147,33 L 147,75 M 134,44 Q 147,56 160,44" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                <polygon points="138,58 156,58 142,70 156,70" fill="#d4af37" stroke="#fff" stroke-width="1"/>
+                <text x="76" y="108" font-family="'Playfair Display', serif" font-size="52" font-weight="900" fill="#ffffff" stroke="#d4af37" stroke-width="1.5" text-anchor="middle">S</text>
+                <text x="120" y="118" font-family="'Playfair Display', serif" font-size="48" font-weight="900" fill="#ffffff" stroke="#d4af37" stroke-width="1.5" text-anchor="middle">B</text>
+                <rect x="24" y="138" width="152" height="36" rx="8" fill="#060b18" fill-opacity="0.85" stroke="#d4af37" stroke-width="1.5"/>
+                <text x="100" y="154" font-family="'Playfair Display', serif" font-size="12" font-weight="bold" fill="#fef08a" text-anchor="middle">Shankar</text>
+                <text x="100" y="167" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="bold" fill="#ffffff" letter-spacing="1" text-anchor="middle">Bangle Store</text>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <!-- Clean brand name with NO subheading underneath -->
+            <span class="font-serif text-2xl sm:text-3xl font-extrabold tracking-tight text-white block leading-tight group-hover:text-gold-300 transition-colors">
+              Shankar Bangle Store
+            </span>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation & Multi-Page View Switcher -->
+        <nav class="hidden lg:flex items-center space-x-2 text-sm font-medium">
+          <!-- Page 1 Switcher Tab -->
+          <button 
+            id="navTabHome" 
+            onclick="navigateTo('home')" 
+            class="px-4 py-2 rounded-xl transition flex items-center gap-2 font-bold text-royal-950 bg-gold-500 shadow-md"
+          >
+            <i class="fa-solid fa-house"></i>
+            <span data-i18n="navHome">Home</span>
+          </button>
+
+          <!-- Page 2 Switcher Tab (Categories & Catalog) -->
+          <button 
+            id="navTabCategories" 
+            onclick="navigateTo('categories')" 
+            class="px-4 py-2 rounded-xl transition flex items-center gap-2 font-bold text-slate-300 hover:text-gold-300 hover:bg-royal-900 border border-transparent hover:border-gold-500/30"
+          >
+            <i class="fa-solid fa-shapes text-gold-400"></i>
+            <span data-i18n="navCategoriesPage">Categories &amp; Designs</span>
+            <span class="px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-300 text-[10px] font-bold border border-gold-500/40">Catalog</span>
+          </button>
+
+          <a href="#about-store" onclick="ensureHomePageSection('about-store')" class="px-3.5 py-2 text-slate-300 hover:text-gold-400 transition" data-i18n="navAbout">About Us</a>
+          <a href="#contact-store" onclick="ensureHomePageSection('contact-store')" class="px-3.5 py-2 text-slate-300 hover:text-gold-400 transition" data-i18n="navContact">Contact</a>
+        </nav>
+
+        <!-- Header Actions: Direct WhatsApp & Call -->
+        <div class="flex items-center space-x-2.5">
+          <a 
+            id="headerWhatsAppBtn"
+            href="https://wa.me/919927053101?text=Namaste%20Sandeep%20ji,%20I%20am%20browsing%20the%20bangle%20designs%20on%20your%20website" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-semibold text-xs sm:text-sm shadow-md transition"
+          >
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span data-i18n="btnWhatsApp">WhatsApp</span>
+          </a>
+
+          <a 
+            href="tel:+919927053101" 
+            class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 text-royal-950 font-bold text-xs sm:text-sm hover:from-gold-400 hover:to-amber-500 shadow-md shadow-gold-500/20 transition transform active:scale-95"
+          >
+            <i class="fa-solid fa-phone"></i>
+            <span data-i18n="btnCall">Call Now</span>
+          </a>
+
+          <!-- Mobile Hamburger Menu Button -->
+          <button id="mobileMenuToggle" class="p-2.5 rounded-lg text-slate-300 hover:text-white lg:hidden border border-gold-500/20" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars text-lg" id="menuBarsIcon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenuDropdown" class="hidden lg:hidden border-t border-gold-500/20 bg-royal-950/98 px-5 py-4 space-y-3">
+      <button onclick="navigateTo('home'); closeMobileMenu();" class="w-full text-left py-2.5 text-gold-300 font-bold text-sm border-b border-white/5 flex items-center justify-between">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-house text-xs"></i> <span data-i18n="navHome">Home</span></span>
+        <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+      </button>
+
+      <!-- Prominent Switch to Page 2 in Mobile Menu -->
+      <button onclick="navigateTo('categories'); closeMobileMenu();" class="w-full text-left py-2.5 text-white font-bold text-sm border-b border-white/5 flex items-center justify-between bg-gold-500/10 px-3 rounded-xl border border-gold-500/30">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-shapes text-gold-400"></i> <span data-i18n="navCategoriesPage">Categories &amp; Designs</span></span>
+        <span class="px-2 py-0.5 rounded-full bg-gold-500 text-royal-950 text-[10px] font-extrabold">Open Page</span>
+      </button>
+
+      <a href="#about-store" onclick="ensureHomePageSection('about-store'); closeMobileMenu();" class="mobile-nav-item block py-2 text-slate-300 hover:text-gold-400 font-medium text-sm border-b border-white/5" data-i18n="navAbout">About Us</a>
+      <a href="#contact-store" onclick="ensureHomePageSection('contact-store'); closeMobileMenu();" class="mobile-nav-item block py-2 text-slate-300 hover:text-gold-400 font-medium text-sm border-b border-white/5" data-i18n="navContact">Contact</a>
+
+      <div class="pt-2 flex flex-col gap-2">
+        <button onclick="toggleLanguage(); closeMobileMenu();" class="w-full py-2.5 px-3 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-bold flex items-center justify-center gap-2">
+          <i class="fa-solid fa-language"></i> <span id="mobileLangToggleLabel">🇮🇳 हिंदी में देखें</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 1: HOME VIEW (HERO BANNER, HERITAGE, GUIDES, LOWER BROWSE CATEGORIES)-->
+  <!-- ========================================================================= -->
+  <main id="pageHomeView" class="block">
+    
+    <!-- Hero Section with Celestial Shiva Banner -->
+    <section class="relative pt-6 pb-12 md:pt-10 md:pb-16 overflow-hidden bg-gradient-to-b from-royal-950 via-royal-900 to-royal-950">
+      <div class="absolute inset-0 pointer-events-none opacity-25">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-600 rounded-full blur-[150px]"></div>
+        <div class="absolute top-1/2 -right-24 w-96 h-96 bg-gold-600 rounded-full blur-[150px]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- OFFICIAL BANNER CONTAINER + HIGH RES SVG FALLBACK -->
+        <div class="relative max-w-5xl mx-auto rounded-3xl overflow-hidden border-2 border-sky-400/40 shadow-2xl shadow-sky-950/80 bg-royal-950 mb-8 group">
+          
+          <!-- Real Image Element for hosted banner -->
+          <img 
+            id="heroBannerImg" 
+            src="https://ik.imagekit.io/xpryz873w/Image%20for%20website/Banner.png?updatedAt=1794470439415" 
+            alt="Shankar Bangle Store Firozabad - Lord Shiva & Diamond Trishul Banner" 
+            class="w-full h-auto object-cover max-h-[520px] transition-transform duration-700 group-hover:scale-[1.01]"
+            onload="handleBannerLoadSuccess(this)"
+            onerror="handleBannerLoadError(this)"
+          >
+
+          <!-- Vector SVG Banner Fallback (Instant seamless render) -->
+          <div id="heroBannerFallback" class="hidden w-full aspect-[2/1] sm:aspect-[2.2/1] max-h-[520px] bg-gradient-to-r from-[#040b17] via-[#091a38] to-[#040b17] flex items-center justify-center relative overflow-hidden">
+            <svg viewBox="0 0 1200 580" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="shivaSky" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#020611" />
+                  <stop offset="50%" stop-color="#0b2247" />
+                  <stop offset="100%" stop-color="#040d1e" />
+                </linearGradient>
+                <linearGradient id="chrome3D" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="35%" stop-color="#e2e8f0" />
+                  <stop offset="55%" stop-color="#94a3b8" />
+                  <stop offset="100%" stop-color="#ffffff" />
+                </linearGradient>
+                <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#64748b" stop-opacity="0.8" />
+                  <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+                </linearGradient>
+              </defs>
+              
+              <!-- Cosmic Sky -->
+              <rect width="1200" height="580" fill="url(#shivaSky)" />
+
+              <!-- Himalayan Mountains Silhouette -->
+              <polygon points="-50,380 90,240 180,310 280,180 390,340 480,260 620,420 -50,580" fill="url(#mountainGrad)" opacity="0.45" />
+              <polygon points="-50,440 120,320 220,380 340,290 490,440 -50,580" fill="#061226" opacity="0.7" />
+
+              <!-- Lord Shiva Meditative Profile -->
+              <g transform="translate(820, 40)" opacity="0.85">
+                <path d="M 120,20 A 42,42 0 1,1 120,80 A 30,30 0 1,0 120,20 Z" fill="#e0f2fe" filter="drop-shadow(0 0 8px #38bdf8)"/>
+                <path d="M 60,110 C 90,80 180,90 200,160 C 215,210 210,280 170,340 C 130,400 90,420 50,440" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+                <rect x="75" y="145" width="46" height="4" rx="2" fill="#ffffff" opacity="0.9"/>
+                <rect x="72" y="153" width="52" height="4" rx="2" fill="#ffffff" opacity="0.9"/>
+                <rect x="75" y="161" width="46" height="4" rx="2" fill="#ffffff" opacity="0.9"/>
+                <circle cx="98" cy="155" r="4.5" fill="#f59e0b" />
+                <circle cx="170" cy="290" r="18" fill="none" stroke="#93c5fd" stroke-width="5"/>
+              </g>
+
+              <!-- Center Diamond Swirl Emblem with Trishul & Damru -->
+              <g transform="translate(520, 180)">
+                <circle cx="0" cy="0" r="105" fill="none" stroke="#38bdf8" stroke-width="6" stroke-dasharray="16 8" opacity="0.75"/>
+                <circle cx="0" cy="0" r="88" fill="none" stroke="#facc15" stroke-width="4" stroke-dasharray="12 6" opacity="0.9"/>
+                <path d="M -5,-130 L 5,-130 L 3,-60 L -3,-60 Z" fill="#ffffff" />
+                <path d="M -25,-125 Q 0,-95 25,-125" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+                <polygon points="-16,-62 16,-62 -2,-42 16,-22 -16,-22 2,-42" fill="#d4af37" stroke="#ffffff" stroke-width="2"/>
+                <text x="-26" y="14" font-family="'Playfair Display', serif" font-size="64" font-weight="900" fill="#ffffff" stroke="#94a3b8" stroke-width="2">S</text>
+                <text x="16" y="24" font-family="'Playfair Display', serif" font-size="56" font-weight="900" fill="#ffffff" stroke="#94a3b8" stroke-width="2">B</text>
+              </g>
+
+              <!-- 3D Chrome Brand Typography: Shankar Bangle Store FIROZABAD -->
+              <text x="600" y="390" font-family="'Playfair Display', serif" font-size="64" font-weight="900" letter-spacing="1" fill="url(#chrome3D)" text-anchor="middle" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.85))">
+                Shankar
+              </text>
+              <line x1="280" y1="422" x2="430" y2="422" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+              <text x="600" y="432" font-family="'Playfair Display', serif" font-size="36" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="2">
+                Bangle Store
+              </text>
+              <line x1="770" y1="422" x2="920" y2="422" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+              <text x="600" y="475" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800" letter-spacing="12" fill="#cbd5e1" text-anchor="middle">
+                FIROZABAD
+              </text>
+              <text x="600" y="520" font-family="'Noto Sans Devanagari', sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">
+                ॐ
+              </text>
+            </svg>
+          </div>
+
+        <!-- Hero Header -->
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span data-i18n="heroBadge">Firozabad Glass Bangle Showcase</span>
+          </div>
+
+          <!-- Clean brand name with NO subheading underneath -->
+          <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Shankar Bangle Store
+          </h1>
+
+          <!-- Quick Switch Buttons to Jump to Page 2 -->
+          <div class="pt-4 flex flex-wrap gap-3.5 justify-center">
+            <button 
+              onclick="navigateTo('categories')" 
+              class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 text-royal-950 font-extrabold text-sm shadow-xl shadow-gold-500/20 hover:from-gold-400 hover:to-amber-500 transition transform active:scale-95"
+            >
+              <i class="fa-solid fa-shapes text-base"></i>
+              <span data-i18n="heroBtnExploreCategories">Open Categories &amp; All Designs</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+
+            <a 
+              id="heroWhatsAppBtn"
+              href="https://wa.me/919927053101?text=Namaste%20Sandeep%20ji,%20I%20am%20interested%20in%20seeing%20your%20bangle%20designs" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-semibold text-sm shadow-lg transition"
+            >
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span data-i18n="heroBtnWhatsApp">Message Sandeep Gupta</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: FRESH WEEKLY ARRIVALS HIGHLIGHT -->
+    <section class="py-12 bg-royal-900 border-y border-gold-500/20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-3">
+          <div>
+            <span class="text-gold-400 text-xs font-bold uppercase tracking-wider block mb-1" data-i18n="weeklyTag">Fresh Releases</span>
+            <h2 class="font-serif text-2xl font-bold text-white" data-i18n="weeklyTitle">Latest Weekly Drops</h2>
+          </div>
+          <button onclick="navigateTo('categories')" class="text-xs font-bold text-gold-400 hover:text-gold-300 transition flex items-center gap-1.5 self-start sm:self-auto">
+            <span data-i18n="viewAllDesigns">View All in Categories Page</span> <i class="fa-solid fa-arrow-right text-[11px]"></i>
+          </button>
+        </div>
+
+        <!-- Horizontal scroll of latest 6 drops -->
+        <div id="homeWeeklyDropsContainer" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth pb-2">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: COMPREHENSIVE GUIDE & INSTRUCTIONS (STATUS, BUTTONS, INQUIRIES) -->
+    <section class="py-16 bg-royal-900/90 border-b border-gold-500/20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-gold-400 text-xs sm:text-sm font-bold uppercase tracking-widest block mb-1" data-i18n="guideSuper">Help &amp; Instructions</span>
+          <h2 class="font-serif text-2xl sm:text-4xl font-extrabold text-white" data-i18n="guideHeading">
+            Understanding Status &amp; Button Options
+          </h2>
+          <div class="w-20 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto my-3"></div>
+          <p class="text-slate-300 text-xs sm:text-sm" data-i18n="guideSub">
+            Everything you need to know about browsing our visual catalog, checking availability, and connecting directly with Sandeep Gupta.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Guide Card 1: Availability Status Explained -->
+          <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-gold-500/40 transition flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-boxes-stacked"></i>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-white" data-i18n="card1Title">1. In Stock vs On Order</h3>
+              
+              <div class="space-y-3 text-xs text-slate-300">
+                <div class="p-3 rounded-xl bg-royal-950 border border-emerald-500/30">
+                  <div class="flex items-center gap-2 text-emerald-400 font-bold mb-1">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                    <span data-i18n="statusInStock">In Stock</span>
+                  </div>
+                  <p class="text-[11px] leading-relaxed text-slate-300" data-i18n="guideInStockDesc">
+                    Ready for direct viewing and dispatch at our Firozabad store immediately.
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-royal-950 border border-amber-500/30">
+                  <div class="flex items-center gap-2 text-amber-400 font-bold mb-1">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                    <span data-i18n="statusOnOrder">On Order</span>
+                  </div>
+                  <p class="text-[11px] leading-relaxed text-slate-300" data-i18n="guideOnOrderDesc">
+                    Crafted on custom demand by our artisans. Sandeep Gupta will update you on crafting timelines.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-white/5 text-[11px] text-gold-400 font-semibold" data-i18n="guideOwnerTip">
+              * The store owner can toggle this status at any time.
+            </div>
+          </div>
+
+          <!-- Guide Card 2: Button Functions Explained -->
+          <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-gold-500/40 transition flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-hand-pointer"></i>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-white" data-i18n="card2Title">2. How the Buttons Work</h3>
+              
+              <div class="space-y-3 text-xs text-slate-300">
+                <div class="p-3 rounded-xl bg-royal-950 border border-white/5">
+                  <span class="font-bold text-white flex items-center gap-1.5 mb-1">
+                    <i class="fa-solid fa-magnifying-glass-plus text-gold-400"></i> <span data-i18n="viewFullBtn">View Full</span>
+                  </span>
+                  <p class="text-[11px] leading-relaxed text-slate-400" data-i18n="guideViewFullDesc">
+                    Opens a crystal-clear high-definition zoom modal to inspect cut patterns, luster, and stone clarity up close.
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-xl bg-royal-950 border border-emerald-500/20">
+                  <span class="font-bold text-emerald-400 flex items-center gap-1.5 mb-1">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> <span data-i18n="inquireBtn">Inquire</span>
+                  </span>
+                  <p class="text-[11px] leading-relaxed text-slate-400" data-i18n="guideInquireDesc">
+                    Launches WhatsApp with the exact Design SKU code pre-filled, so Sandeep Gupta knows instantly which piece you want.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-white/5 text-[11px] text-slate-400" data-i18n="guideZeroQtyNotice">
+              Pure visual showcase. No quantities or volume counts needed.
+            </div>
+          </div>
+
+          <!-- Guide Card 3: Visual catalog-to-WhatsApp-to-call journey -->
+          <div class="glass-card md:col-span-2 p-5 sm:p-7 rounded-2xl border border-white/10 hover:border-gold-500/40 transition">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
+              <div>
+                <h3 class="font-serif text-lg sm:text-xl font-bold text-white" data-i18n="card3Title">3. How to Inquire</h3>
+                <p class="text-xs text-slate-400 mt-1" data-i18n="guideSubVisual">Choose a design, tap its WhatsApp button, then call to confirm.</p>
+              </div>
+              <span class="text-[10px] uppercase tracking-widest text-gold-400 font-bold" data-i18n="visualGuideLabel">Quick visual guide</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-5 items-center">
+              <!-- Mini catalog screen: image and details are populated from a real published catalog item -->
+              <div class="rounded-2xl border border-gold-500/30 bg-royal-950 p-3 sm:p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[10px] font-bold text-gold-300 uppercase tracking-wider" data-i18n="step1Title">Browse Designs</span>
+                  <span class="text-[9px] text-slate-500">01</span>
+                </div>
+                <div class="rounded-xl overflow-hidden border border-white/10 bg-royal-900 max-w-[230px] mx-auto">
+                  <div class="flex items-center justify-between px-2.5 py-2 border-b border-white/10">
+                    <span class="text-[9px] font-bold text-white" data-i18n="miniCatalogTitle">Categories &amp; Designs</span>
+                    <i class="fa-solid fa-grip text-gold-400 text-[10px]"></i>
+                  </div>
+                  <img id="guideCatalogImage" src="" alt="Actual bangle design from the catalog" class="w-full h-32 sm:h-36 object-cover bg-royal-900 hidden" onerror="this.classList.add('hidden')">
+                  <div id="guideCatalogNoImage" class="h-32 sm:h-36 flex items-center justify-center text-slate-500 text-[10px] text-center px-3" data-i18n="miniCatalogEmpty">Your published catalog design will appear here.</div>
+                  <div class="p-2.5">
+                    <div class="flex items-center justify-between gap-2">
+                      <span id="guideCatalogSku" class="text-[9px] text-gold-300 font-mono">SBS-—</span>
+                      <span class="text-[9px] text-emerald-400 font-bold" data-i18n="miniCatalogTag">Catalog design</span>
+                    </div>
+                    <p id="guideCatalogName" class="text-[10px] text-white font-semibold truncate mt-1" data-i18n="miniCatalogName">Your selected bangle design</p>
+                  </div>
+                </div>
+                <p class="text-[10px] text-slate-400 text-center mt-2" data-i18n="step1Desc">Open Categories &amp; Designs and browse the designs.</p>
+              </div>
+
+              <!-- Directional arrows lead from the catalog to the actual WhatsApp action -->
+              <div class="flex md:flex-col items-center justify-center gap-2 text-emerald-400 py-1">
+                <i class="fa-solid fa-arrow-right text-xl hidden md:block" aria-hidden="true"></i>
+                <i class="fa-solid fa-arrow-down text-xl md:hidden" aria-hidden="true"></i>
+                <span class="text-[9px] uppercase tracking-wider font-bold text-emerald-300" data-i18n="tapHereLabel">Tap here</span>
+              </div>
+
+              <div class="rounded-2xl border border-emerald-500/30 bg-royal-950 p-3 sm:p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[10px] font-bold text-emerald-300 uppercase tracking-wider" data-i18n="step2Title">Send WhatsApp Inquiry</span>
+                  <span class="text-[9px] text-slate-500">02</span>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-royal-900 max-w-[230px] mx-auto p-4 min-h-[190px] flex flex-col items-center justify-center text-center">
+                  <div class="w-12 h-12 rounded-full bg-emerald-500/15 flex items-center justify-center mb-3">
+                    <i class="fa-brands fa-whatsapp text-3xl text-emerald-400"></i>
+                  </div>
+                  <p class="text-[10px] text-slate-300 mb-3" data-i18n="whatsAppButtonInstruction">On the chosen design card, touch this button:</p>
+                  <div class="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 text-white px-4 py-2.5 text-[11px] font-extrabold shadow-lg ring-2 ring-emerald-300/40">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span data-i18n="inquireBtn">WhatsApp Inquiry</span>
+                    <i class="fa-solid fa-hand-pointer text-[10px]"></i>
+                  </div>
+                  <p class="text-[9px] text-slate-400 mt-3" data-i18n="step2Desc">Tap WhatsApp Inquiry on your chosen design and send the pre-filled message with its design code.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center my-3 sm:my-4 text-sky-400">
+              <i class="fa-solid fa-arrow-down text-2xl" aria-hidden="true"></i>
+              <span class="text-[9px] uppercase tracking-widest font-bold text-sky-300 mt-1" data-i18n="nextStepLabel">Next step</span>
+            </div>
+
+            <div class="max-w-md mx-auto rounded-2xl border border-sky-500/30 bg-royal-950 p-4 sm:p-5 text-center">
+              <span class="text-[10px] font-bold text-sky-300 uppercase tracking-wider" data-i18n="step3Title">Call to Confirm</span>
+              <div class="mt-3 rounded-xl border border-white/10 bg-royal-900 p-4 flex flex-col items-center">
+                <div class="w-12 h-12 rounded-full bg-sky-500/15 flex items-center justify-center mb-2">
+                  <i class="fa-solid fa-phone text-2xl text-sky-300"></i>
+                </div>
+                <p class="text-xs font-bold text-white">Sandeep Gupta</p>
+                <p class="text-[10px] text-slate-400 mt-1">+91 99270 53101</p>
+                <a href="tel:+919927053101" class="mt-3 inline-flex items-center justify-center gap-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white px-5 py-2.5 text-xs font-extrabold shadow-lg ring-2 ring-sky-300/40">
+                  <i class="fa-solid fa-phone"></i><span data-i18n="callNowButton">Call Now</span><i class="fa-solid fa-hand-pointer text-[10px]"></i>
+                </a>
+              </div>
+              <p class="text-[10px] leading-relaxed text-slate-400 mt-3" data-i18n="step3Desc">Call Sandeep Gupta to discuss your order, sizes, colours and other details.</p>
+            </div>
+            <div class="pt-4 mt-5 border-t border-white/5 text-center text-[11px] text-emerald-400 font-semibold" data-i18n="guideFastResponse">Direct Proprietor Response: +91 99270 53101</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: BROWSE CATEGORIES (PLACED LOWER ON PAGE AFTER IMAGES & HERITAGE) -->
+    <section id="browse-categories" class="py-20 bg-royal-950 relative overflow-hidden">
+      <!-- Glow background -->
+      <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[600px] h-96 bg-gold-600/10 rounded-full blur-[160px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-gold-400 text-xs sm:text-sm font-bold uppercase tracking-widest block mb-1" data-i18n="browseSuper">Complete Catalog</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white" data-i18n="browseHeading">
+            Browse by Sub-Category
+          </h2>
+          <div class="w-20 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto my-3"></div>
+          <p class="text-slate-300 text-xs sm:text-sm" data-i18n="browseSub">
+            Select any sub-category below to jump directly to Page 2 with filtered designs, or explore the entire collection of 50+ pieces.
+          </p>
+        </div>
+
+        <!-- Homepage sub-category cards are rendered from editable data -->
+        <div id="homeSubcategoryCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <!-- Cards are populated from homepage category settings -->
+        </div>
+
+        <!-- Master Switcher Button to Page 2 -->
+        <div class="text-center">
+          <button 
+            onclick="navigateTo('categories', 'all')" 
+            class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-gold-500 via-amber-500 to-gold-600 text-royal-950 font-extrabold text-base shadow-2xl shadow-gold-500/25 hover:from-gold-400 hover:to-amber-400 transition transform hover:-translate-y-0.5 active:scale-95"
+          >
+            <i class="fa-solid fa-layer-group text-lg"></i>
+            <span data-i18n="btnOpenFullCategoryPage">View All Categories &amp; Designs</span>
+            <i class="fa-solid fa-chevron-right text-sm"></i>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: ABOUT STORE & SANDEEP GUPTA -->
+    <section id="about-store" class="py-16 bg-royal-900 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-5 text-center">
+            <div class="w-44 h-44 rounded-full overflow-hidden border-4 border-gold-400 shadow-2xl mx-auto mb-4 bg-royal-950 flex items-center justify-center">
+              <img id="aboutLogoImg" src="https://ik.imagekit.io/xpryz873w/Image%20for%20website/Logo.png?updatedAt=1794470413295" alt="Shankar Bangle Store" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+              <div id="aboutLogoFallback" class="w-full h-full hidden">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                  <circle cx="50" cy="50" r="48" fill="#0b172a" stroke="#d4af37" stroke-width="2"/>
+                  <path d="M 50,3 A 47,47 0 0,0 50,97 Z" fill="#ea580c"/>
+                  <path d="M 50,3 A 47,47 0 0,1 50,97 Z" fill="#1e3a8a"/>
+                  <text x="36" y="58" font-family="'Playfair Display', serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle">S</text>
+                  <text x="64" y="62" font-family="'Playfair Display', serif" font-size="24" font-weight="900" fill="#ffffff" text-anchor="middle">B</text>
+                </svg>
+              </div>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-white">Sandeep Gupta</h3>
+            <p class="text-xs text-gold-400 font-semibold" data-i18n="proprietorLabel">Proprietor</p>
+            <p class="text-xs text-slate-400">Shankar Bangle Store, Firozabad</p>
+          </div>
+
+          <div class="lg:col-span-7 space-y-3">
+            <span class="text-gold-400 text-xs font-bold uppercase tracking-wider block" data-i18n="aboutBadge">Direct Proprietor Assurance</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white" data-i18n="aboutTitle">
+              The Heritage of Shankar Bangle Store
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light" data-i18n="aboutDesc1">
+              Shankar Bangle Store is based in Firozabad, the City of Bangles. We bring together the charm of traditional designs and the freshness of modern styles, offering collections that match changing trends and customer preferences. Our aim is to provide beautiful designs and reliable wholesale service to shop owners and bangle retailers. We welcome buyers from across India and around the world to explore our collection and connect with us for wholesale enquiries.
+            </p>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light" data-i18n="aboutDesc2">
+              Thank you for visiting Shankar Bangle Store! Explore our collection of bangle designs, neatly organised into different categories. Find the designs that best suit your needs and preferences, and contact us directly for wholesale enquiries and orders. We look forward to serving you!
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CONTACT & LOCATION -->
+    <section id="contact-store" class="py-16 bg-royal-950 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-1" data-i18n="contactSuper">Direct Contact</span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white" data-i18n="contactTitle">Visit or Connect with Us</h2>
+          <div class="w-16 h-1 bg-gold-500 mx-auto my-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <a href="tel:+919927053101" class="glass-card p-6 rounded-2xl text-center hover:border-gold-400 transition flex flex-col items-center">
+            <i class="fa-solid fa-phone text-gold-400 text-2xl mb-3"></i>
+            <h3 class="font-bold text-white text-sm" data-i18n="callCardTitle">Call Sandeep Gupta</h3>
+            <span class="text-gold-400 font-mono font-bold text-sm mt-2">+91 99270 53101</span>
+          </a>
+
+          <a href="https://wa.me/919927053101?text=Namaste%20Sandeep%20ji,%20I%20am%20inquiring%20about%20your%20bangle%20designs" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl text-center hover:border-emerald-400 transition flex flex-col items-center">
+            <i class="fa-brands fa-whatsapp text-emerald-400 text-2xl mb-3"></i>
+            <h3 class="font-bold text-white text-sm" data-i18n="whatsAppCardTitle">WhatsApp Inquiry</h3>
+            <span class="text-emerald-400 font-bold text-sm mt-2">+91 99270 53101</span>
+          </a>
+
+          <div class="glass-card p-6 rounded-2xl text-center flex flex-col items-center">
+            <i class="fa-solid fa-shop text-blue-400 text-2xl mb-3"></i>
+            <h3 class="font-bold text-white text-sm" data-i18n="storeLocTitle">Store Location</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed" data-i18n="storeLocDetails">
+              Shop No. 3, Ramchandra Paliwal Market,<br>Gali Bohran, Firozabad (UP)
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 2: CATEGORIES & ALL DESIGNS (SEPARATE VIEW SYSTEM WITH 6 SUB-CATS)   -->
+  <!-- ========================================================================= -->
+  <main id="pageCategoriesView" class="hidden">
+    
+    <!-- Top Action Bar for Page 2 (Back to Home button + Page Title) -->
+    <div class="bg-royal-900 border-b border-gold-500/20 py-4 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        
+        <button 
+          onclick="navigateTo('home')" 
+          class="px-4 py-2 rounded-xl bg-royal-800 hover:bg-royal-750 text-gold-300 border border-gold-500/30 text-xs font-bold transition flex items-center gap-2 shadow"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          <span data-i18n="btnBackToHome">← Back to Main Home</span>
+        </button>
+
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-gold-400"></span>
+          <h2 class="font-serif text-lg sm:text-xl font-bold text-white" data-i18n="catalogPageTitle">
+            Categories &amp; Bangle Designs
+          </h2>
+        </div>
+
+        <button 
+          onclick="openLightbox(catalogItems[0].id)" 
+          class="px-3.5 py-2 rounded-xl bg-royal-950 text-slate-300 border border-white/10 hover:text-white text-xs font-medium transition flex items-center gap-1.5"
+        >
+          <i class="fa-solid fa-expand text-gold-400"></i>
+          <span data-i18n="quickPreviewBtn">Quick Zoom Preview</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Main Catalog Container -->
+    <div class="py-10 bg-royal-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Search & Filter Controls Panel -->
+        <div class="glass-panel p-4 sm:p-6 rounded-2xl mb-8 space-y-4">
+          
+          <!-- Search Bar & Stock Availability Pills -->
+          <div class="flex flex-col md:flex-row gap-3">
+            
+            <!-- Live Instant Search -->
+            <div class="relative flex-1">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+              <input 
+                type="text" 
+                id="catalogSearchInput" 
+                placeholder="Search by Design Code (e.g. SBS-104), stone, or finish..."
+                oninput="handleCatalogSearch()"
+                class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-royal-900 border border-slate-700 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition"
+              >
+              <button 
+                id="clearCatalogSearchBtn" 
+                onclick="clearCatalogSearch()" 
+                class="hidden absolute right-3 top-2.5 text-slate-400 hover:text-white p-1"
+                title="Clear"
+              >
+                <i class="fa-solid fa-circle-xmark text-sm"></i>
+              </button>
+            </div>
+
+            <!-- Availability Quick Filter Pills (In Stock vs On Order) -->
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <button data-stock="all" onclick="setCatalogStockFilter('all')" class="catalog-stock-pill active-stock-pill px-3 py-2 rounded-xl text-xs font-bold bg-gold-500 text-royal-950 transition">
+                <span data-i18n="filterAllStatus">All Status</span>
+              </button>
+              <button data-stock="in_stock" onclick="setCatalogStockFilter('in_stock')" class="catalog-stock-pill px-3 py-2 rounded-xl text-xs font-bold bg-royal-850 text-emerald-400 hover:bg-royal-800 border border-emerald-500/30 transition flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> <span data-i18n="filterInStockOnly">In Stock Only</span>
+              </button>
+              <button data-stock="on_order" onclick="setCatalogStockFilter('on_order')" class="catalog-stock-pill px-3 py-2 rounded-xl text-xs font-bold bg-royal-850 text-amber-400 hover:bg-royal-800 border border-amber-500/30 transition flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span> <span data-i18n="filterOnOrderOnly">On Order Only</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- THE 6 SUB-CATEGORIES UNDER 'ALL DESIGNS' -->
+          <div class="pt-3 border-t border-white/10 space-y-2.5">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-bold text-gold-400 tracking-wide" data-i18n="categoryLabel">Sub-Categories of All Designs:</span>
+              <span class="text-[11px] text-slate-400 font-mono" id="catalogSubCatIndicator">Viewing: All Sub-Categories</span>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+              <button data-cat="all" onclick="setCatalogCategoryFilter('all')" class="cat-pill active-pill px-3.5 py-1.5 rounded-lg text-xs font-bold bg-gold-500 text-royal-950 transition shadow-sm">
+                <span data-i18n="catAll">All Sub-Categories</span>
+              </button>
+              <button data-cat="stone_2_5" onclick="setCatalogCategoryFilter('stone_2_5')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-royal-800 text-slate-300 hover:text-white border border-white/5 transition">
+                <span data-i18n="catStone25">2.5 no. Stone</span>
+              </button>
+              <button data-cat="stone_4" onclick="setCatalogCategoryFilter('stone_4')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-royal-800 text-slate-300 hover:text-white border border-white/5 transition">
+                <span data-i18n="catStone4">4 no. Stone</span>
+              </button>
+              <button data-cat="stylish_colour" onclick="setCatalogCategoryFilter('stylish_colour')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-royal-800 text-slate-300 hover:text-white border border-white/5 transition">
+                <span data-i18n="catStylishColour">Stylish colour</span>
+              </button>
+              <button data-cat="rhinestone" onclick="setCatalogCategoryFilter('rhinestone')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-royal-800 text-slate-300 hover:text-white border border-white/5 transition">
+                <span data-i18n="catRhinestone">Rhinestone</span>
+              </button>
+              <button data-cat="plane_daily" onclick="setCatalogCategoryFilter('plane_daily')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-royal-800 text-slate-300 hover:text-white border border-white/5 transition">
+                <span data-i18n="catPlaneDaily">Plane/ daily wear</span>
+              </button>
+              <button data-cat="chain_matching" onclick="setCatalogCategoryFilter('chain_matching')" class="cat-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-royal-800 text-slate-300 hover:text-white border border-white/5 transition">
+                <span data-i18n="catChainMatching">Chain design/ matching design</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live Result Count Bar -->
+        <div class="flex flex-wrap items-center justify-between mb-6 text-xs text-slate-400 gap-2">
+          <div>
+            <span data-i18n="showingText">Showing</span> <span class="text-gold-400 font-bold" id="catalogVisibleCount">12</span> <span data-i18n="ofText">of</span> <span class="text-white font-bold" id="catalogTotalCount">50</span> <span data-i18n="designsText">designs</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-400 font-semibold flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span> <span id="catInStockBadge">35 In Stock</span>
+            </span>
+            <span class="text-slate-500">•</span>
+            <span class="text-amber-400 font-semibold flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span> <span id="catOnOrderBadge">15 On Order</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Catalog Grid (50 Designs Rendered Dynamically) -->
+        <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Rendered by JavaScript -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="catalogEmptyState" class="hidden py-16 text-center glass-panel rounded-2xl max-w-md mx-auto my-6 p-6">
+          <i class="fa-solid fa-magnifying-glass text-4xl text-slate-500 mb-3 block"></i>
+          <h4 class="text-lg font-bold text-white" data-i18n="noDesignsFound">No Designs Found</h4>
+          <p class="text-xs text-slate-400 mt-1 mb-4" data-i18n="noDesignsDesc">No bangles matched your active search or filter selection.</p>
+          <button onclick="resetCatalogFilters()" class="px-4 py-2 bg-gold-500 text-royal-950 font-bold text-xs rounded-xl hover:bg-gold-400 transition" data-i18n="resetFiltersBtn">
+            Reset All Filters
+          </button>
+        </div>
+
+        <!-- Chunked Pagination (Load More Button) -->
+        <div id="catalogLoadMoreContainer" class="mt-12 text-center">
+          <button 
+            id="catalogLoadMoreBtn" 
+            onclick="loadMoreCatalogDesigns()" 
+            class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-royal-850 to-royal-800 hover:from-royal-800 hover:to-royal-750 border border-gold-500/30 text-white font-bold text-sm shadow-xl transition-all hover:border-gold-400 transform active:scale-95 inline-flex items-center gap-2"
+          >
+            <i class="fa-solid fa-images text-gold-400"></i>
+            <span id="catalogLoadMoreText">Show More Designs</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-royal-950 border-t border-gold-500/20 py-10 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 pb-6 border-b border-white/5">
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+          <div class="w-10 h-10 rounded-full overflow-hidden border border-gold-400 shrink-0 bg-royal-900 flex items-center justify-center">
+            <img id="footerLogoImg" src="https://ik.imagekit.io/xpryz873w/Image%20for%20website/Logo.png?updatedAt=1794470413295" alt="Shankar Bangle Store Logo" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+            <div id="footerLogoFallback" class="w-full h-full hidden">
+              <svg viewBox="0 0 100 100" class="w-full h-full">
+                <circle cx="50" cy="50" r="48" fill="#0b172a" stroke="#d4af37" stroke-width="2"/>
+                <path d="M 50,3 A 47,47 0 0,0 50,97 Z" fill="#ea580c"/>
+                <path d="M 50,3 A 47,47 0 0,1 50,97 Z" fill="#1e3a8a"/>
+                <text x="36" y="58" font-family="'Playfair Display', serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle">S</text>
+                <text x="64" y="62" font-family="'Playfair Display', serif" font-size="24" font-weight="900" fill="#ffffff" text-anchor="middle">B</text>
+              </svg>
+            </div>
+          </div>
+          <!-- Clean brand name with no subheading -->
+          <span class="font-serif text-lg font-bold text-white">Shankar Bangle Store</span>
+        </div>
+        
+        <p class="text-center md:text-right text-slate-400 text-xs">
+          Sandeep Gupta • Ramchandra Paliwal Market, Firozabad
+        </p>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
+        <p>© <span id="currentYearSpan"></span> Shankar Bangle Store. Shop No. 3, Ramchandra Paliwal Market, Gali Bohran, Firozabad.</p>
+        <div class="flex items-center gap-3">
+          <button onclick="handleOwnerModeClick()" class="hover:text-gold-400 transition underline" data-i18n="ownerLogin">
+            Owner Portal
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING CALL & WHATSAPP BUTTONS ================= -->
+  <div class="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
+    <!-- Call Floating Button -->
+    <a 
+      href="tel:+919927053101" 
+      class="p-3.5 bg-royal-900 border-2 border-gold-400 text-gold-300 rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition"
+      aria-label="Call Sandeep Gupta"
+      title="Call Sandeep Gupta"
+    >
+      <i class="fa-solid fa-phone text-lg"></i>
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <a 
+      id="floatingWhatsAppBtn"
+      href="https://wa.me/919927053101?text=Namaste%20Sandeep%20ji,%20I%20am%20viewing%20bangles%20on%20your%20website" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="pulse-glow p-3.5 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition"
+      aria-label="WhatsApp Store"
+      title="Chat on WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+  </div>
+
+  <!-- ================= LIGHTBOX IMAGE MODAL ================= -->
+  <div id="imageLightboxModal" class="fixed inset-0 z-50 bg-royal-950/95 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLightboxModal()">
+    <div class="relative max-w-2xl w-full bg-royal-900 border border-gold-500/40 rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+      
+      <button onclick="closeLightboxModal()" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-royal-950/80 hover:bg-royal-950 text-white flex items-center justify-center border border-white/10 transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="bg-black/40 flex items-center justify-center p-4">
+        <img id="modalImg" src="" alt="Bangle Design" class="max-h-[60vh] w-auto max-w-full object-contain rounded-xl shadow-lg">
+      </div>
+
+      <div class="p-6 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span id="modalSku" class="px-2.5 py-1 rounded bg-royal-950 text-gold-300 font-mono text-xs font-bold border border-gold-500/30">SKU</span>
+            <span id="modalCategory" class="px-2.5 py-1 rounded bg-royal-800 text-slate-300 text-xs font-semibold">Category</span>
+          </div>
+
+          <div id="modalStatusBadge"></div>
+        </div>
+
+        <div>
+          <h3 id="modalTitle" class="font-serif text-xl sm:text-2xl font-bold text-white">Title</h3>
+          <p id="modalDesc" class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed font-light">Description goes here</p>
+        </div>
+
+        <!-- Owner Mode Switch inside Lightbox -->
+        <div id="modalOwnerToggleArea" class="hidden p-3 rounded-xl bg-gold-500/10 border border-gold-500/30 flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs text-gold-300 font-semibold"><i class="fa-solid fa-sliders mr-1.5"></i> <span data-i18n="ownerQuickSwitch">Owner Quick Switch:</span></span>
+          <div class="flex items-center gap-2">
+            <button id="modalOwnerToggleBtn" onclick="" class="px-3 py-1 rounded-lg text-xs font-bold transition">
+              Toggle Status
+            </button>
+            <button id="modalOwnerEditBtn" onclick="" class="px-3 py-1 rounded-lg text-xs font-bold bg-royal-800 hover:bg-royal-750 text-amber-300 border border-gold-500/40 transition flex items-center gap-1">
+              <i class="fa-solid fa-pen-to-square"></i> <span data-i18n="editDesignBtn">Edit</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pt-2 flex gap-3">
+          <a id="modalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span data-i18n="inquireModalBtn">Inquire About This Design on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= OWNER MODE PIN MODAL ================= -->
+  <div id="ownerPinModal" class="fixed inset-0 z-50 bg-royal-950/85 backdrop-blur-sm hidden flex items-center justify-center p-4" onclick="closeOwnerPinModal()">
+    <div class="relative max-w-sm w-full bg-royal-900 border border-gold-500/40 rounded-2xl p-6 shadow-2xl text-center" onclick="event.stopPropagation()">
+      <div class="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl mx-auto mb-3">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <h3 class="font-serif text-lg font-bold text-white" data-i18n="ownerPinTitle">Owner Access</h3>
+      <p class="text-xs text-slate-300 mt-1 mb-4" data-i18n="ownerPinSubtitle">Enter your private owner PIN to access editing tools.</p>
+
+      <form onsubmit="verifyOwnerPin(event)" class="space-y-3">
+        <input 
+          type="password" 
+          id="ownerPinInput" 
+          maxlength="12"
+          inputmode="numeric"
+          autocomplete="off"
+          placeholder="Enter owner PIN" 
+          class="w-full text-center px-4 py-2.5 rounded-xl bg-royal-950 border border-slate-700 text-white text-sm tracking-widest focus:outline-none focus:border-gold-400 font-mono"
+          required
+        >
+        <p id="pinErrorText" class="text-xs text-red-400 hidden" data-i18n="pinError">Incorrect PIN. Please try again.</p>
+
+        <div class="flex gap-2 pt-1">
+          <button type="submit" class="flex-1 py-2.5 px-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs transition" data-i18n="unlockOwnerBtn">
+            Unlock Owner Mode
+          </button>
+          <button type="button" onclick="closeOwnerPinModal()" class="py-2.5 px-3 rounded-xl bg-royal-800 text-slate-300 text-xs" data-i18n="cancelBtn">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= OWNER: ADD DESIGN MODAL ================= -->
+  <div id="addDesignModal" class="fixed inset-0 z-50 bg-royal-950/85 backdrop-blur-sm hidden flex items-center justify-center p-4" onclick="closeAddDesignModal()">
+    <div class="relative max-w-lg w-full bg-royal-900 border border-gold-500/40 rounded-2xl p-6 shadow-2xl max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+        <div>
+          <h3 class="font-serif text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-plus-circle text-gold-400"></i> <span data-i18n="addNewDesignTitle">Add New Bangle Design</span>
+          </h3>
+          <p class="text-xs text-slate-400" data-i18n="addNewDesignSub">Paste an ImageKit URL and publish this design to the live website.</p>
+        </div>
+        <button onclick="closeAddDesignModal()" class="text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form id="newDesignForm" onsubmit="handleCreateDesign(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formDesignCode">Design Code (SKU) *</label>
+          <input type="text" id="newSku" required placeholder="e.g. SBS-151" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs font-mono focus:outline-none focus:border-gold-400">
+        </div>
+
+        <div>
+          <label for="newTitle" class="block text-xs font-semibold text-slate-300 mb-1">English Design Name *</label>
+          <input type="text" id="newTitle" required placeholder="e.g. Royal Red Stone Bangles" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+        </div>
+        <div>
+          <label for="newTitleHi" class="block text-xs font-semibold text-slate-300 mb-1">Hindi Design Name *</label>
+          <input type="text" id="newTitleHi" required lang="hi" placeholder="उदाहरण: रॉयल रेड स्टोन चूड़ियाँ" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formCategoryLabel">Sub-Category *</label>
+            <select id="newCategory" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formInitialStatus">Initial Availability *</label>
+            <select id="newStatus" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+              <option value="in_stock">In Stock (स्टॉक में उपलब्ध)</option>
+              <option value="on_order">On Order (ऑर्डर पर तैयार)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formDescLabel">Craft Description</label>
+          <textarea id="newDesc" rows="2" placeholder="e.g. Fine glass bangles with exquisite stone work..." class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
+        </div>
+
+        <div class="space-y-2">
+          <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formImageLabel">ImageKit Image URL *</label>
+          <input type="url" id="newImageUrl" required placeholder="Paste ImageKit URL (https://...)" oninput="previewNewImage(this.value)" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+          <p class="text-[11px] text-slate-400">Upload the photo to ImageKit first, copy its full URL, and paste it here.</p>
+          <div id="newImagePreviewWrap" class="hidden rounded-xl border border-slate-700 bg-royal-950 p-2">
+            <img id="newImagePreview" alt="New bangle design preview" class="max-h-40 mx-auto rounded-lg object-contain">
+            <p class="text-[10px] text-emerald-300 text-center mt-1">Image preview</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 pt-1">
+          <input type="checkbox" id="newIsWeeklyDrop" checked class="rounded bg-royal-950 border-slate-700 text-gold-500 focus:ring-gold-500">
+          <label for="newIsWeeklyDrop" class="text-xs text-gold-300 font-medium" data-i18n="featureInWeeklyDrops">Feature in 'Weekly Drops' shelf</label>
+        </div>
+
+        <div class="pt-3 flex gap-2">
+          <button type="submit" class="flex-1 py-2.5 px-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs transition" data-i18n="publishDesignBtn">
+            Publish Design
+          </button>
+          <button type="button" onclick="closeAddDesignModal()" class="py-2.5 px-3 rounded-xl bg-royal-800 text-slate-300 text-xs" data-i18n="cancelBtn">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= OWNER: EDIT DESIGN MODAL ================= -->
+  <div id="editDesignModal" class="fixed inset-0 z-50 bg-royal-950/85 backdrop-blur-sm hidden flex items-center justify-center p-4" onclick="closeEditDesignModal()">
+    <div class="relative max-w-lg w-full bg-royal-900 border border-gold-500/40 rounded-2xl p-6 shadow-2xl max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+        <div>
+          <h3 class="font-serif text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-pen-to-square text-amber-400"></i> <span data-i18n="editModalTitle">Edit Bangle Design</span>
+          </h3>
+          <p class="text-xs text-slate-400" data-i18n="editModalSub">Update details, swap photo, or remove design</p>
+        </div>
+        <button onclick="closeEditDesignModal()" class="text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form id="editDesignForm" onsubmit="handleUpdateDesign(event)" class="space-y-3.5">
+        <input type="hidden" id="editDesignId">
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formDesignCode">Design Code (SKU)</label>
+          <input type="text" id="editSku" disabled class="w-full px-3 py-2 rounded-xl bg-royal-950/60 border border-slate-800 text-gold-300 text-xs font-mono cursor-not-allowed">
+        </div>
+
+        <div>
+          <label for="editTitle" class="block text-xs font-semibold text-slate-300 mb-1">English Design Name *</label>
+          <input type="text" id="editTitle" required class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+        </div>
+        <div>
+          <label for="editTitleHi" class="block text-xs font-semibold text-slate-300 mb-1">Hindi Design Name *</label>
+          <input type="text" id="editTitleHi" required lang="hi" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formCategoryLabel">Sub-Category *</label>
+            <select id="editCategory" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formInitialStatus">Availability Status *</label>
+            <select id="editStatus" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+              <option value="in_stock">In Stock (स्टॉक में उपलब्ध)</option>
+              <option value="on_order">On Order (ऑर्डर पर तैयार)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formDescLabel">Craft Description</label>
+          <textarea id="editDesc" rows="2" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
+        </div>
+
+        <div class="space-y-2">
+          <label class="block text-xs font-semibold text-slate-300" data-i18n="formImageLabel">Bangle Photo</label>
+          <div class="flex items-center gap-3 mb-1">
+            <div class="w-14 h-14 rounded-lg overflow-hidden border border-gold-500/40 bg-royal-950 shrink-0">
+              <img id="editImagePreview" src="" alt="Design Preview" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <input type="url" id="editImageUrl" placeholder="Paste Image URL (https://...)" oninput="updateEditThumbnail(this.value)" class="w-full px-3 py-1.5 rounded-lg bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+              <div class="flex items-center gap-1.5">
+                <span class="text-[11px] text-slate-400" data-i18n="orUploadFromDevice">or upload:</span>
+                <input type="file" id="editImageFile" accept="image/*" disabled hidden onchange="previewEditImageUpload(this)" class="text-xs text-slate-400 file:mr-2 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-[11px] file:font-semibold file:bg-gold-500/20 file:text-gold-300 hover:file:bg-gold-500/30 cursor-pointer">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 pt-1">
+          <input type="checkbox" id="editIsWeeklyDrop" class="rounded bg-royal-950 border-slate-700 text-gold-500 focus:ring-gold-500">
+          <label for="editIsWeeklyDrop" class="text-xs text-gold-300 font-medium" data-i18n="featureInWeeklyDrops">Feature in 'Weekly Drops' shelf</label>
+        </div>
+
+        <div class="pt-3 flex flex-wrap gap-2">
+          <button type="submit" class="flex-1 py-2.5 px-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs transition shadow-md" data-i18n="saveChangesBtn">
+            Save Changes
+          </button>
+          <button type="button" onclick="promptDeleteCurrentDesign()" class="py-2.5 px-3 rounded-xl bg-rose-900/40 hover:bg-rose-900/70 border border-rose-500/40 text-rose-300 text-xs font-bold transition flex items-center gap-1" data-i18n="deleteDesignBtn">
+            <i class="fa-solid fa-trash-can"></i> Delete
+          </button>
+          <button type="button" onclick="closeEditDesignModal()" class="py-2.5 px-3 rounded-xl bg-royal-800 text-slate-300 text-xs" data-i18n="cancelBtn">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= OWNER: DELETE CONFIRMATION MODAL ================= -->
+  <div id="deleteConfirmModal" class="fixed inset-0 z-50 bg-royal-950/90 backdrop-blur-sm hidden flex items-center justify-center p-4" onclick="closeDeleteConfirmModal()">
+    <div class="relative max-w-sm w-full bg-royal-900 border border-rose-500/40 rounded-2xl p-6 shadow-2xl text-center space-y-4" onclick="event.stopPropagation()">
+      <div class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center text-xl mx-auto">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <div>
+        <h3 class="font-serif text-lg font-bold text-white" data-i18n="deleteConfirmTitle">Delete This Design?</h3>
+        <p class="text-xs text-slate-300 mt-1.5 leading-relaxed" data-i18n="deleteConfirmDesc">
+          Are you sure you want to permanently remove this design from your catalog? This cannot be undone.
+        </p>
+        <p class="text-xs font-mono font-bold text-gold-400 mt-2" id="deleteTargetSku"></p>
+      </div>
+      <div class="flex gap-2 pt-1">
+        <button type="button" onclick="executeDeleteDesign()" class="flex-1 py-2.5 px-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition shadow-lg" data-i18n="confirmDeleteBtn">
+          Yes, Delete Design
+        </button>
+        <button type="button" onclick="closeDeleteConfirmModal()" class="py-2.5 px-3 rounded-xl bg-royal-800 hover:bg-royal-750 text-slate-300 text-xs font-semibold" data-i18n="keepDesignBtn">
+          Keep Design
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BRANDING MANAGER MODAL ( & ) ================= -->
+  <div id="brandingModal" class="fixed inset-0 z-50 bg-royal-950/90 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeBrandingModal()">
+    <div class="relative max-w-lg w-full bg-royal-900 border border-gold-500/40 rounded-2xl p-6 shadow-2xl max-h-[92vh] overflow-y-auto" onclick="event.stopPropagation()">
+      
+      <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+        <div>
+          <h3 class="font-serif text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-cloud-arrow-up text-gold-400"></i> <span data-i18n="brandingModalTitle">Load Logo &amp; Banner Images</span>
+          </h3>
+          <p class="text-xs text-slate-300" data-i18n="brandingModalSub">Choose a logo and banner image, or paste their hosted image URLs.</p>
+        </div>
+        <button onclick="closeBrandingModal()" class="text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form id="brandingForm" onsubmit="handleSaveBranding(event)" class="space-y-4">
+        <div class="p-4 rounded-xl bg-royal-950/80 border border-slate-700/80 space-y-2.5">
+          <label class="text-xs font-bold text-gold-300 flex items-center gap-1.5" data-i18n="logoUploadLabel">
+            <i class="fa-solid fa-circle-dot"></i> Choose Circular Logo
+          </label>
+          <div class="flex items-center gap-3">
+            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-gold-400 bg-royal-900 shrink-0 flex items-center justify-center">
+              <img id="brandingLogoPreview" src="https://ik.imagekit.io/xpryz873w/Image%20for%20website/Logo.png?updatedAt=1794470413295" alt="Logo Preview" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+              <span id="brandingLogoFallback" class="text-xs text-gold-300 font-bold">SB</span>
+            </div>
+            <div class="flex-1 space-y-2">
+              <input type="file" id="brandLogoFileInput" accept="image/*" disabled hidden onchange="previewSelectedImage(this, 'brandingLogoPreview', 'brandingLogoFallback')" class="w-full text-xs text-slate-300 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-gold-500/20 file:text-gold-300 hover:file:bg-gold-500/30 cursor-pointer">
+              <input type="url" id="brandLogoUrlInput" placeholder="Or paste online URL (https://...)" class="w-full px-3 py-1.5 rounded-lg bg-royal-900 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-royal-950/80 border border-slate-700/80 space-y-2.5">
+          <label class="text-xs font-bold text-sky-300 flex items-center gap-1.5" data-i18n="bannerUploadLabel">
+            <i class="fa-solid fa-panorama"></i> Choose Celestial Shiva Banner
+          </label>
+          <div class="space-y-2">
+            <div class="w-full h-24 rounded-xl overflow-hidden border border-sky-400/40 bg-royal-900 flex items-center justify-center">
+              <img id="brandingBannerPreview" src="https://ik.imagekit.io/xpryz873w/Image%20for%20website/Banner.png?updatedAt=1794470439415" alt="Banner Preview" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+              <span id="brandingBannerFallback" class="text-xs text-sky-300 font-bold">Celestial Shiva Banner</span>
+            </div>
+            <div class="space-y-2">
+              <input type="file" id="brandBannerFileInput" accept="image/*" disabled hidden onchange="previewSelectedImage(this, 'brandingBannerPreview', 'brandingBannerFallback')" class="w-full text-xs text-slate-300 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-sky-500/20 file:text-sky-300 hover:file:bg-sky-500/30 cursor-pointer">
+              <input type="url" id="brandBannerUrlInput" placeholder="Or paste banner image URL (https://...)" class="w-full px-3 py-1.5 rounded-lg bg-royal-900 border border-slate-700 text-white text-xs focus:outline-none focus:border-sky-400">
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-2 flex flex-wrap gap-2">
+          <button type="submit" class="flex-1 py-2.5 px-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs transition shadow-lg" data-i18n="saveBrandingBtn">
+            Save &amp; Apply Images
+          </button>
+          <button type="button" onclick="resetBrandAssets()" class="py-2.5 px-3 rounded-xl bg-rose-900/40 hover:bg-rose-900/60 border border-rose-500/40 text-rose-300 text-xs font-semibold transition" data-i18n="resetBrandingBtn">
+            Use Vector Artworks
+          </button>
+          <button type="button" onclick="closeBrandingModal()" class="py-2.5 px-3 rounded-xl bg-royal-800 text-slate-300 text-xs" data-i18n="cancelBtn">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= OWNER: HOMEPAGE SUB-CATEGORY IMAGE EDITOR ================= -->
+  <div id="homeCategoryEditorModal" class="fixed inset-0 z-[60] bg-royal-950/90 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeHomeCategoryEditor()">
+    <div class="relative max-w-3xl w-full bg-royal-900 border border-gold-500/40 rounded-2xl p-5 sm:p-6 shadow-2xl max-h-[92vh] overflow-y-auto" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between gap-3 pb-3 border-b border-white/10 mb-4">
+        <div>
+          <h3 class="font-serif text-lg font-bold text-white"><i class="fa-solid fa-images text-gold-400 mr-2"></i>Edit Homepage Sub-Categories</h3>
+          <p class="text-xs text-slate-400 mt-1">Choose automatic category-photo rotation or one manual ImageKit photo. Save &amp; Publish makes these settings live for every visitor.</p>
+        </div>
+        <button type="button" onclick="closeHomeCategoryEditor()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <p class="text-xs text-slate-300">Manage your live product categories. Add, rename, or delete categories here.</p>
+        <button type="button" onclick="addHomeCategory()" class="px-3 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold"><i class="fa-solid fa-plus mr-1"></i>Add Category</button>
+      </div>
+      <div id="homeCategoryEditorFields" class="space-y-4"></div>
+      <div class="sticky bottom-0 pt-4 mt-4 bg-royal-900 border-t border-white/10 flex flex-wrap justify-end gap-2">
+        <button type="button" onclick="closeHomeCategoryEditor()" class="px-4 py-2 rounded-xl bg-royal-800 text-slate-200 text-xs font-bold">Cancel</button>
+        <button type="button" onclick="saveHomeCategorySettings()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 text-royal-950 text-xs font-extrabold"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> Save &amp; Publish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= NOTIFICATION TOAST ================= -->
+  <div id="statusToast" class="fixed top-6 right-6 z-50 hidden max-w-sm w-full bg-royal-900 border border-gold-500/50 rounded-xl p-4 shadow-2xl transition transform duration-300">
+    <div class="flex items-start gap-3">
+      <div id="toastIconContainer" class="w-8 h-8 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0">
+        <i class="fa-solid fa-circle-check text-base"></i>
+      </div>
+      <div class="flex-1">
+        <h5 class="text-xs font-bold text-white" id="toastHeading">Notice</h5>
+        <p class="text-[11px] text-slate-300 mt-0.5" id="toastDetail">Status updated</p>
+      </div>
+      <button onclick="hideToast()" class="text-slate-400 hover:text-white text-xs">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= APPLICATION & SPA LOGIC ================= -->
+  <script>
+    // -----------------------------------------------------------------
+    // 1. BILINGUAL DICTIONARY (ENGLISH & HINDI)
+    // -----------------------------------------------------------------
+    const i18n = {
+      en: {
+        topBadge: "Exclusive Showcase",
+        marketLoc: "Ramchandra Paliwal Market, Firozabad",
+        langBtnLabel: "🇮🇳 हिंदी में देखें",
+        ownerLogin: "Owner Login",
+        navHome: "Home",
+        navCategoriesPage: "Categories & Designs",
+        navAbout: "About Us",
+        navContact: "Contact",
+        btnWhatsApp: "WhatsApp",
+        btnCall: "Call Now",
+        heroBadge: "Firozabad Glass Bangle Showcase",
+        heroBtnExploreCategories: "Open Categories & All Designs",
+        heroBtnWhatsApp: "Message Sandeep Gupta",
+        weeklyTag: "Fresh Releases",
+        weeklyTitle: "Latest Weekly Drops",
+        viewAllDesigns: "View All in Categories Page",
+        featureStoneWork: "Precision Stones",
+        featureStoneWorkSub: "2.5 & 4 no. crystals",
+        featureFlameEdge: "Flame-Smooth",
+        featureFlameEdgeSub: "Smooth daily comfort",
+        featureVibrantColors: "Mineral Dyes",
+        featureVibrantColorsSub: "Never fading luster",
+        heritageQuote: "\"Quality bangle designs and reliable wholesale service for buyers near and far.\"",
+        guideSuper: "Help & Instructions",
+        guideHeading: "Understanding Status & Button Options",
+        guideSub: "Everything you need to know about browsing our visual catalog, checking availability, and connecting directly with Sandeep Gupta.",
+        card1Title: "1. In Stock vs On Order",
+        statusInStock: "In Stock",
+        guideInStockDesc: "Ready for direct viewing and dispatch at our Firozabad store immediately.",
+        statusOnOrder: "On Order",
+        guideOnOrderDesc: "Crafted on custom demand by our artisans. Sandeep Gupta will update you on crafting timelines.",
+        guideOwnerTip: "* The store owner can toggle this status at any time.",
+        card2Title: "2. How the Buttons Work",
+        viewFullBtn: "View Full",
+        guideViewFullDesc: "Opens a crystal-clear high-definition zoom modal to inspect cut patterns, luster, and stone clarity up close.",
+        inquireBtn: "Inquire",
+        guideInquireDesc: "Launches WhatsApp with the exact Design SKU code pre-filled, so Sandeep Gupta knows instantly which piece you want.",
+        guideZeroQtyNotice: "Pure visual showcase. No quantities or volume counts needed.",
+        card3Title: "3. How to Inquire",
+        guideSubVisual: "Choose a design, tap its WhatsApp button, then call to confirm.",
+        visualGuideLabel: "Quick visual guide",
+        miniCatalogTitle: "Categories & Designs",
+        miniCatalogEmpty: "Your published catalog design will appear here.",
+        miniCatalogTag: "Catalog design",
+        miniCatalogName: "Your selected bangle design",
+        tapHereLabel: "Tap here",
+        whatsAppButtonInstruction: "On the chosen design card, touch this button:",
+        nextStepLabel: "Next step",
+        callNowButton: "Call Now",
+        step1Title: "Browse Designs",
+        step2Title: "Send WhatsApp Inquiry",
+        step3Title: "Call to Confirm",
+        step1Desc: "Open Categories & Designs and browse the designs.",
+        step2Desc: "Tap WhatsApp Inquiry on your chosen design and send the pre-filled message with its design code.",
+        step3Desc: "Call Sandeep Gupta to discuss your order, sizes, colours and other details.",
+        guideFastResponse: "Direct Proprietor Response: +91 99270 53101",
+        browseSuper: "Complete Catalog",
+        browseHeading: "Browse by Sub-Category",
+        browseSub: "Select any sub-category below to jump directly to Page 2 with filtered designs, or explore the entire collection of 50+ pieces.",
+        catStone25: "2.5 no. Stone",
+        catDescStone25: "Delicate micro-faceted stone patterns",
+        catStone4: "4 no. Stone",
+        catDescStone4: "Bold prominent center stones & kadas",
+        catStylishColour: "Stylish colour",
+        catDescStylish: "Pastels, dual-tone ombres & velvety hues",
+        catRhinestone: "Rhinestone",
+        catDescRhine: "Austrian cut maximum prism sparkle",
+        catPlaneDaily: "Plane/ daily wear",
+        catDescPlane: "Comfort smooth daily traditional glass",
+        catChainMatching: "Chain design/ matching design",
+        catDescChain: "Interlinked filigree patterns for bridal sets",
+        btnOpenFullCategoryPage: "Switch to Second Page: View All Categories & 50 Designs",
+        btnBackToHome: "← Back to Main Home",
+        catalogPageTitle: "Categories & 50 Bangle Designs",
+        quickPreviewBtn: "Quick Zoom Preview",
+        searchPlaceholder: "Search by Design Code (e.g. SBS-104), stone, or finish...",
+        filterAllStatus: "All Status",
+        filterInStockOnly: "In Stock Only",
+        filterOnOrderOnly: "On Order Only",
+        categoryLabel: "Sub-Categories of All Designs:",
+        catAll: "All Sub-Categories",
+        showingText: "Showing",
+        ofText: "of",
+        designsText: "designs",
+        noDesignsFound: "No Designs Found",
+        noDesignsDesc: "No bangles matched your active search or filter selection.",
+        resetFiltersBtn: "Reset All Filters",
+        loadMoreText: "Show More Designs",
+        aboutBadge: "Direct Proprietor Assurance",
+        aboutTitle: "The Heritage of Shankar Bangle Store",
+        aboutDesc1: "Shankar Bangle Store is based in Firozabad, the City of Bangles. We bring together the charm of traditional designs and the freshness of modern styles, offering collections that match changing trends and customer preferences. Our aim is to provide beautiful designs and reliable wholesale service to shop owners and bangle retailers. We welcome buyers from across India and around the world to explore our collection and connect with us for wholesale enquiries.",
+        aboutDesc2: "Thank you for visiting Shankar Bangle Store! Explore our collection of bangle designs, neatly organised into different categories. Find the designs that best suit your needs and preferences, and contact us directly for wholesale enquiries and orders. We look forward to serving you!",
+        proprietorLabel: "Proprietor",
+        contactSuper: "Direct Contact",
+        contactTitle: "Visit or Connect with Us",
+        callCardTitle: "Call Sandeep Gupta",
+        whatsAppCardTitle: "WhatsApp Inquiry",
+        storeLocTitle: "Store Location",
+        storeLocDetails: "Shop No. 3, Ramchandra Paliwal Market,<br>Gali Bohran, Firozabad (UP)",
+        ownerQuickSwitch: "Owner Quick Switch:",
+        inquireModalBtn: "Inquire About This Design on WhatsApp",
+        switchToOnOrder: "Switch to On Order",
+        switchToInStock: "Switch to In Stock",
+        ownerPinTitle: "Owner Access",
+        ownerPinSubtitle: "Enter your private owner PIN to access editing tools.",
+        pinError: "Incorrect PIN. Please try again.",
+        unlockOwnerBtn: "Unlock Owner Mode",
+        cancelBtn: "Cancel",
+        addNewDesignTitle: "Add New Bangle Design",
+        addNewDesignSub: "Paste an ImageKit URL and publish this design to the live website.",
+        formDesignCode: "Design Code (SKU) *",
+        formDesignTitle: "Design Title *",
+        formCategoryLabel: "Sub-Category of All Designs *",
+        formInitialStatus: "Initial Availability *",
+        formDescLabel: "Craft Description",
+        formImageLabel: "ImageKit Image URL *",
+        featureInWeeklyDrops: "Feature in 'Weekly Drops' shelf",
+        publishDesignBtn: "Publish Design",
+        addDesignBtn: "+ Add Design",
+        exitOwnerBtn: "Exit Owner Mode",
+        editDesignBtn: "Edit Design",
+        editModalTitle: "Edit Bangle Design",
+        editModalSub: "Update details, swap photo, or remove design",
+        saveChangesBtn: "Save Changes",
+        deleteDesignBtn: "Delete Design",
+        deleteConfirmTitle: "Delete This Design?",
+        deleteConfirmDesc: "Are you sure you want to permanently remove this design from your catalog? This cannot be undone.",
+        confirmDeleteBtn: "Yes, Delete Design",
+        keepDesignBtn: "Keep Design",
+        designUpdatedToast: "Design Updated!",
+        designDeletedToast: "Design Removed!",
+        ownerBannerActive: "Owner Mode Active: Tap on any bangle card to switch between In Stock & On Order.",
+        editBrandingBtn: "Change Logo & Banner",
+        brandingModalTitle: "Load Logo & Banner Images",
+        brandingModalSub: "Choose a logo and banner image, or paste their hosted image URLs.",
+        logoUploadLabel: "Choose Circular Logo",
+        bannerUploadLabel: "Choose Celestial Shiva Banner",
+        saveBrandingBtn: "Save & Apply Images",
+        resetBrandingBtn: "Use Vector Artworks",
+      },
+      hi: {
+        topBadge: "विशेष काँच चूड़ी गैलरी",
+        marketLoc: "रामचंद्र पालीवाल मार्केट, फ़िरोज़ाबाद",
+        langBtnLabel: "🇬🇧 In English",
+        ownerLogin: "मालिक लॉगिन",
+        navHome: "होम",
+        navCategoriesPage: "श्रेणियां और डिजाइन",
+        navAbout: "शंकर बैंगल की जानकारी",
+        navContact: "संपर्क करें",
+        btnWhatsApp: "व्हाट्सएप",
+        btnCall: "कॉल करें",
+        heroBadge: "फ़िरोज़ाबाद काँच चूड़ी शोकेस",
+        heroBtnExploreCategories: "श्रेणियां व सभी डिजाइन खोलें",
+        heroBtnWhatsApp: "संदीप गुप्ता से बात करें",
+        weeklyTag: "ताज़ा साप्ताहिक संग्रह",
+        weeklyTitle: "इस सप्ताह के नए डिजाइन",
+        viewAllDesigns: "श्रेणी पृष्ठ पर सभी देखें",
+        featureStoneWork: "सटीक स्टोन जड़ाऊ",
+        featureStoneWorkSub: "2.5 व 4 नं. स्टोन",
+        featureFlameEdge: "चिकनी धार",
+        featureFlameEdgeSub: "आरामदायक उपयोग",
+        featureVibrantColors: "खनिज पक्के रंग",
+        featureVibrantColorsSub: "कभी न फीकी पड़ने वाली चमक",
+        heritageQuote: "\"खरीदारों के लिए अच्छे चूड़ी डिजाइन और भरोसेमंद होलसेल सेवा।\"",
+        guideSuper: "सहायता व निर्देश",
+        guideHeading: "उपलब्धता स्थिति व बटन के कार्य",
+        guideSub: "गैलरी देखने, स्टॉक स्थिति समझने और संदीप गुप्ता से सीधे संपर्क करने के सरल नियम।",
+        card1Title: "1. स्टॉक में उपलब्ध बनाम ऑर्डर पर तैयार",
+        statusInStock: "स्टॉक में उपलब्ध",
+        guideInStockDesc: "फ़िरोज़ाबाद दुकान पर तुरंत देखने व लेने हेतु पूर्णतः उपलब्ध।",
+        statusOnOrder: "ऑर्डर पर तैयार",
+        guideOnOrderDesc: "कारीगरों द्वारा आपकी विशेष मांग पर बनाई जाने वाली। संदीप गुप्ता से समय सीमा की पुष्टि करें।",
+        guideOwnerTip: "* दुकान मालिक द्वारा यह स्थिति कभी भी बदली जा सकती है।",
+        card2Title: "2. बटन का उपयोग कैसे करें",
+        viewFullBtn: "बड़ा फोटो",
+        guideViewFullDesc: "कटिंग पैटर्न, स्टोन की फिनिशिंग और रंगों की स्पष्टता को ज़ूम करके नज़दीक से देखें।",
+        inquireBtn: "पूछें",
+        guideInquireDesc: "सीधे व्हाट्सएप पर उस चूड़ी के कोड (SKU) के साथ संदेश भेजें ताकि संदीप गुप्ता तुरंत पहचान सकें।",
+        guideZeroQtyNotice: "पूर्णतः फोटो व डिजाइन शोकेस। किसी मात्रा या गिनती की कोई शर्त नहीं।",
+        card3Title: "3. पूछताछ कैसे करें",
+        guideSubVisual: "डिजाइन चुनें, उसका WhatsApp बटन दबाएं और फिर कॉल करके ऑर्डर तय करें।",
+        visualGuideLabel: "आसान तरीका",
+        miniCatalogTitle: "कैटेगरी और डिजाइन",
+        miniCatalogEmpty: "आपके कैटलॉग का डिजाइन यहां दिखाई देगा।",
+        miniCatalogTag: "कैटलॉग डिजाइन",
+        miniCatalogName: "आपकी पसंद का चूड़ी डिजाइन",
+        tapHereLabel: "यहां दबाएं",
+        whatsAppButtonInstruction: "पसंद के डिजाइन कार्ड पर यह बटन दबाएं:",
+        nextStepLabel: "अगला कदम",
+        callNowButton: "अभी कॉल करें",
+        step1Title: "डिजाइन देखें",
+        step2Title: "WhatsApp पर पूछताछ भेजें",
+        step3Title: "कॉल करके ऑर्डर तय करें",
+        step1Desc: "कैटेगरी और डिजाइन पेज खोलें और अपनी पसंद के डिजाइन देखें।",
+        step2Desc: "पसंद के डिजाइन पर WhatsApp Inquiry दबाएं और डिजाइन कोड के साथ संदेश भेजें।",
+        step3Desc: "ऑर्डर, साइज़, रंग और बाकी जानकारी के लिए संदीप गुप्ता को कॉल करें।",
+        guideFastResponse: "सीधा संपर्क: +91 99270 53101",
+        browseSuper: "सम्पूर्ण कैटलॉग",
+        browseHeading: "उप-श्रेणी के अनुसार चुनें",
+        browseSub: "नीचे दी गई किसी भी उप-श्रेणी पर क्लिक करके सीधे दूसरे पेज पर फ़िल्टर किए गए डिजाइन देखें।",
+        catStone25: "2.5 नं. स्टोन",
+        catDescStone25: "बारीक 2.5 नंबर स्टोन जड़ाऊ डिजाइन",
+        catStone4: "4 नं. स्टोन",
+        catDescStone4: "उभरे हुए बड़े 4 नंबर स्टोन कंगन",
+        catStylishColour: "स्टाइलिश कलर",
+        catDescStylish: "पेस्टल, दो-रंगी शेड व वेलवेट मैट",
+        catRhinestone: "पोटा",
+        catDescRhine: "ऑस्ट्रियन कट हीरों जैसी चमक",
+        catPlaneDaily: "प्लेन / डेली वियर",
+        catDescPlane: "पारंपरिक चिकनी दैनिक उपयोग चूड़ियाँ",
+        catChainMatching: "चेन डिजाइन / मैचिंग डिजाइन",
+        catDescChain: "लहंगे व साड़ियों से मैचिंग चेन बॉर्डर",
+        btnOpenFullCategoryPage: "सभी श्रेणियां व डिजाइन देखें",
+        btnBackToHome: "← मुख्य पृष्ठ (Home) पर वापस जाएं",
+        catalogPageTitle: "श्रेणियां व काँच चूड़ी डिजाइन",
+        quickPreviewBtn: "त्वरित ज़ूम प्रिव्यू",
+        searchPlaceholder: "डिजाइन कोड (जैसे SBS-104), स्टोन या रंग से खोजें...",
+        filterAllStatus: "सभी स्थिति",
+        filterInStockOnly: "केवल स्टॉक में उपलब्ध",
+        filterOnOrderOnly: "केवल ऑर्डर पर उपलब्ध",
+        categoryLabel: "सभी डिजाइन की उप-श्रेणियाँ:",
+        catAll: "सभी उप-श्रेणियाँ",
+        showingText: "दिखाए जा रहे हैं:",
+        ofText: "कुल",
+        designsText: "डिजाइन",
+        noDesignsFound: "कोई डिजाइन नहीं मिला",
+        noDesignsDesc: "आपके द्वारा चुने गए सर्च या फ़िल्टर के अनुसार कोई चूड़ी उपलब्ध नहीं है।",
+        resetFiltersBtn: "सभी फ़िल्टर रीसेट करें",
+        loadMoreText: "और डिजाइन देखें",
+        aboutBadge: "सीधा प्रोपराइटर आश्वासन",
+        aboutTitle: "शंकर बैंगल की जानकारी",
+        aboutDesc1: "शंकर बैंगल स्टोर चूड़ियों के शहर फ़िरोज़ाबाद में स्थित है। हम पारंपरिक डिजाइनों की खूबसूरती और आधुनिक स्टाइल की नई ताजगी को एक साथ लेकर आते हैं। हमारा कलेक्शन बदलते ट्रेंड और ग्राहकों की पसंद के अनुसार तैयार किया जाता है। हमारा उद्देश्य दुकान मालिकों और चूड़ी रिटेलर्स को सुंदर डिजाइन और भरोसेमंद होलसेल सेवा देना है। हम भारत और दुनिया भर के खरीदारों का स्वागत करते हैं। हमारे कलेक्शन को देखें और होलसेल पूछताछ के लिए हमसे संपर्क करें।",
+        aboutDesc2: "शंकर बैंगल स्टोर पर आने के लिए आपका धन्यवाद! हमारे चूड़ी डिजाइनों के कलेक्शन को अलग-अलग कैटेगरी में आसानी से देखें। अपनी जरूरत और पसंद के अनुसार डिजाइन चुनें और होलसेल पूछताछ या ऑर्डर के लिए सीधे हमसे संपर्क करें। हमें आपकी सेवा करने की खुशी होगी!",
+        proprietorLabel: "प्रोपराइटर",
+        contactSuper: "सीधा संपर्क",
+        contactTitle: "हमसे मिलें या संपर्क करें",
+        callCardTitle: "संदीप गुप्ता को कॉल करें",
+        whatsAppCardTitle: "व्हाट्सएप पूछताछ",
+        storeLocTitle: "दुकान का पता",
+        storeLocDetails: "दुकान नं. 3, रामचंद्र पालीवाल मार्केट,<br>गली बोहरान, फ़िरोज़ाबाद (उ.प्र.)",
+        ownerQuickSwitch: "मालिक त्वरित बदलाव:",
+        inquireModalBtn: "व्हाट्सएप पर इस डिजाइन की जानकारी लें",
+        switchToOnOrder: "ऑर्डर पर बदलें",
+        switchToInStock: "स्टॉक में बदलें",
+        ownerPinTitle: "मालिक प्रवेश",
+        ownerPinSubtitle: "वेबसाइट में बदलाव करने के लिए अपना निजी मालिक पिन दर्ज करें।",
+        pinError: "गलत पिन। कृपया दोबारा कोशिश करें।",
+        unlockOwnerBtn: "मालिक मोड खोलें",
+        cancelBtn: "रद्द करें",
+        addNewDesignTitle: "नया चूड़ी डिजाइन जोड़ें",
+        addNewDesignSub: "वेबसाइट शोकेस पर नया डिजाइन प्रकाशित करें",
+        formDesignCode: "डिजाइन कोड (SKU) *",
+        formDesignTitle: "डिजाइन का नाम *",
+        formCategoryLabel: "उप-श्रेणी (Sub-Category) *",
+        formInitialStatus: "शुरुआती उपलब्धता *",
+        formDescLabel: "विवरण (Description)",
+        formImageLabel: "ImageKit फोटो URL *",
+        featureInWeeklyDrops: "'साप्ताहिक नए डिजाइन' में दिखाएं",
+        publishDesignBtn: "डिजाइन प्रकाशित करें",
+        addDesignBtn: "+ नया डिजाइन जोड़ें",
+        exitOwnerBtn: "मालिक मोड से बाहर आएं",
+        editDesignBtn: "एडिट करें",
+        editModalTitle: "चूड़ी डिजाइन संपादित करें",
+        editModalSub: "फोटो बदलें, नाम, श्रेणी सुधारें या हटाएं",
+        saveChangesBtn: "बदलाव सुरक्षित करें",
+        deleteDesignBtn: "हटाएं (Delete)",
+        deleteConfirmTitle: "क्या आप यह डिजाइन हटाना चाहते हैं?",
+        deleteConfirmDesc: "क्या आप वाकई इस डिजाइन को स्थायी रूप से हटाना चाहते हैं? यह क्रिया वापस नहीं ली जा सकती।",
+        confirmDeleteBtn: "हाँ, डिजाइन हटाएं",
+        keepDesignBtn: "रद्द करें",
+        designUpdatedToast: "डिजाइन अपडेट हुआ!",
+        designDeletedToast: "डिजाइन हटा दिया गया!",
+        ownerBannerActive: "मालिक मोड सक्रिय है: किसी भी चूड़ी कार्ड पर टैप करके 'स्टॉक में' या 'ऑर्डर पर' बदलें।",
+        editBrandingBtn: "लोगो व बैनर बदलें",
+        brandingModalTitle: "लोगो व बैनर फोटो लगाएं",
+        brandingModalSub: "अपने फोन/कंप्यूटर से लोगो और बैनर चुनें।",
+        logoUploadLabel: "गोलाकार लोगो चुनें",
+        bannerUploadLabel: "दिव्य शिव बैनर चुनें",
+        saveBrandingBtn: "तस्वीरें सुरक्षित करें",
+        resetBrandingBtn: "वेक्टर आर्टवर्क का उपयोग करें",
+      }
+    };
+
+    let currentLang = 'en';
+    let currentPage = 'home'; // 'home' or 'categories'
+
+    // -----------------------------------------------------------------
+    // 2. 50 CURATED BANGLES (6 SUB-CATEGORIES, STRICT ZERO-QUANTITY)
+    // -----------------------------------------------------------------
+    // No demo products are preloaded. The public catalog is populated only from owner-published products.
+
+    const categoryNames = {
+      stone_2_5: { en: "2.5 no. Stone", hi: "2.5 नं. स्टोन" },
+      stone_4: { en: "4 no. Stone", hi: "4 नं. स्टोन" },
+      stylish_colour: { en: "Stylish colour", hi: "स्टाइलिश कलर" },
+      rhinestone: { en: "Rhinestone", hi: "पोटा" },
+      plane_daily: { en: "Plane/ daily wear", hi: "प्लेन / डेली वियर" },
+      chain_matching: { en: "Chain design/ matching design", hi: "चेन डिजाइन / मैचिंग डिजाइन" }
+    };
+
+    // -----------------------------------------------------------------
+    // 3. SPA STATE MANAGEMENT & VIEW ROUTING
+    // -----------------------------------------------------------------
+    let catalogItems = [];
+    let isOwnerMode = false;
+    // Live publishing: Netlify Function + Netlify Blobs stores changes for every visitor.
+    const LIVE_DATA_ENDPOINT = '/.netlify/functions/site-data';
+    let liveSiteState = { catalog: null, logo: null, banner: null, homeCategories: null };
+    let liveDataAvailable = false;
+    let ownerSessionToken = sessionStorage.getItem('sbs_owner_session_token') || '';
+    let lastPublishedCatalog = [];
+    let publicRefreshTimer = null;
+    const cloneCatalogItems = items => (Array.isArray(items) ? items : []).map(item => ({ ...item }));
+
+    let catalogActiveCategory = 'all';
+    let catalogActiveStock = 'all';
+    let catalogSearchQuery = '';
+    const ITEMS_PER_CHUNK = 12;
+    let catalogVisibleLimit = ITEMS_PER_CHUNK;
+
+    // Homepage category cards use real product photos from their linked catalog category.
+    // Default interval is 15 seconds. No stock/demo product photos are used.
+    const DEFAULT_HOME_CATEGORIES = [
+      { key: 'stone_2_5', title: '2.5 no. Stone', titleHi: '2.5 नं. स्टोन', description: 'Browse designs in this category', image: '', imageMode: 'auto', rotationSeconds: 15 },
+      { key: 'stone_4', title: '4 no. Stone', titleHi: '4 नं. स्टोन', description: 'Browse designs in this category', image: '', imageMode: 'auto', rotationSeconds: 15 },
+      { key: 'stylish_colour', title: 'Stylish colour', titleHi: 'स्टाइलिश कलर', description: 'Browse designs in this category', image: '', imageMode: 'auto', rotationSeconds: 15 },
+      { key: 'rhinestone', title: 'Rhinestone', titleHi: 'पोटा', description: 'Browse designs in this category', image: '', imageMode: 'auto', rotationSeconds: 15 },
+      { key: 'plane_daily', title: 'Plane / daily wear', titleHi: 'प्लेन / डेली वियर', description: 'Browse designs in this category', image: '', imageMode: 'auto', rotationSeconds: 15 },
+      { key: 'chain_matching', title: 'Chain design / matching design', titleHi: 'चेन डिजाइन / मैचिंग डिजाइन', description: 'Browse designs in this category', image: '', imageMode: 'auto', rotationSeconds: 15 }
+    ];
+    let homeCategoryItems = DEFAULT_HOME_CATEGORIES.map(item => ({ ...item }));
+    let homeCategoryRotationTimers = [];
+
+    function getHomeCategoryImageUrls(category) {
+      if (category.imageMode === 'manual') {
+        return category.image && /^https:\/\//i.test(category.image) ? [category.image] : [];
+      }
+      const seen = new Set();
+      return catalogItems
+        .filter(product => product.category === category.key && typeof product.img === 'string' && /^https:\/\//i.test(product.img))
+        .map(product => product.img)
+        .filter(url => { if (seen.has(url)) return false; seen.add(url); return true; });
+    }
+
+    function displayHomeCategoryImage(key, url) {
+      const host = document.getElementById('homeSubcategoryCards');
+      if (!host) return;
+      const img = Array.from(host.querySelectorAll('[data-home-cat-image]')).find(el => el.dataset.homeCatImage === key);
+      if (!img) return;
+      if (!url) {
+        img.classList.add('hidden');
+        img.removeAttribute('src');
+        delete img.dataset.currentSrc;
+        return;
+      }
+      // Keep the current image visible while the next image loads.
+      // Only swap the visible image after the new URL has loaded successfully.
+      if (img.dataset.currentSrc === url && !img.classList.contains('hidden')) return;
+      const preload = new Image();
+      preload.onload = () => {
+        img.onload = null;
+        img.onerror = null;
+        img.src = url;
+        img.dataset.currentSrc = url;
+        img.classList.remove('hidden');
+      };
+      preload.onerror = () => {
+        // Keep the previous valid image visible if the next image fails.
+        if (img.dataset.currentSrc) {
+          img.classList.remove('hidden');
+        } else {
+          img.classList.add('hidden');
+        }
+      };
+      preload.src = url;
+    }
+
+    function startHomeCategoryImageRotation() {
+      homeCategoryRotationTimers.forEach(timer => clearInterval(timer));
+      homeCategoryRotationTimers = [];
+      homeCategoryItems.forEach(category => {
+        const urls = getHomeCategoryImageUrls(category);
+        if (!urls.length) {
+          displayHomeCategoryImage(category.key, '');
+          return;
+        }
+        let currentIndex = 0;
+        displayHomeCategoryImage(category.key, urls[currentIndex]);
+        if (urls.length > 1) {
+          const seconds = Math.min(120, Math.max(3, Number(category.rotationSeconds) || 15));
+          const timer = setInterval(() => {
+            currentIndex = (currentIndex + 1) % urls.length;
+            displayHomeCategoryImage(category.key, urls[currentIndex]);
+          }, seconds * 1000);
+          homeCategoryRotationTimers.push(timer);
+        }
+      });
+    }
+
+    function renderHomeSubcategoryCards() {
+      const host = document.getElementById('homeSubcategoryCards');
+      if (!host) return;
+      host.innerHTML = homeCategoryItems.map(item => `
+        <div onclick="navigateTo('categories', '${escapeHtml(item.key)}')" class="group glass-card rounded-2xl overflow-hidden border border-gold-500/25 hover:border-gold-400 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 shadow-xl">
+          <div class="relative h-44 overflow-hidden bg-royal-900">
+            <img data-home-cat-image="${escapeHtml(item.key)}" alt="${escapeHtml(item.title)}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 hidden" loading="lazy">            <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-royal-950/70 via-transparent to-transparent"></div>
+            <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-gold-500 text-royal-950 font-bold text-[10px]">Sub-Category</span>
+          </div>
+          <div class="p-5 flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <h4 class="font-serif text-base font-bold text-white group-hover:text-gold-300 transition">${escapeHtml(currentLang === 'hi' ? (item.titleHi || item.title) : item.title)}</h4>
+              <p class="text-xs text-slate-400 mt-0.5">${escapeHtml(item.description || '')}</p>
+            </div>
+            <span class="w-9 h-9 rounded-xl bg-royal-800 text-gold-400 group-hover:bg-gold-500 group-hover:text-royal-950 flex items-center justify-center transition shrink-0"><i class="fa-solid fa-arrow-right text-xs"></i></span>
+          </div>
+        </div>`).join('');
+      startHomeCategoryImageRotation();
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    }
+
+    function renderHomeCategoryEditorFields() {
+      const fields = document.getElementById('homeCategoryEditorFields');
+      if (!fields) return;
+      fields.innerHTML = homeCategoryItems.map((item, index) => {
+        const usedCount = catalogItems.filter(product => product.category === item.key).length;
+        return `
+        <div class="rounded-xl border border-white/10 bg-royal-950/70 p-4 space-y-2.5">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-sm font-bold text-gold-300">Category ${index + 1}</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] text-slate-500">${escapeHtml(item.key)}</span>
+              <button type="button" onclick="deleteHomeCategory('${escapeHtml(item.key)}')" class="px-2.5 py-1 rounded-lg ${usedCount ? 'bg-slate-700 text-slate-400' : 'bg-rose-900/70 text-rose-200 hover:bg-rose-800'} text-[10px] font-bold" ${usedCount ? 'disabled title="Move or delete products in this category first"' : ''}>
+                <i class="fa-solid fa-trash mr-1"></i>Delete
+              </button>
+            </div>
+          </div>
+          <label class="block text-[11px] text-slate-300">Category name (English)</label>
+          <input id="homeCatTitle${index}" value="${escapeHtml(item.title || '')}" class="w-full px-3 py-2 rounded-lg bg-royal-900 border border-slate-700 text-white text-xs">
+          <label class="block text-[11px] text-slate-300">Category name (Hindi)</label>
+          <input id="homeCatTitleHi${index}" value="${escapeHtml(item.titleHi || item.title || '')}" class="w-full px-3 py-2 rounded-lg bg-royal-900 border border-slate-700 text-white text-xs">
+          <label class="block text-[11px] text-slate-300">Short description</label>
+          <input id="homeCatDesc${index}" value="${escapeHtml(item.description || '')}" class="w-full px-3 py-2 rounded-lg bg-royal-900 border border-slate-700 text-white text-xs">
+          <label class="block text-[11px] text-slate-300">Homepage photo source</label>
+          <select id="homeCatMode${index}" class="w-full px-3 py-2 rounded-lg bg-royal-900 border border-slate-700 text-white text-xs">
+            <option value="auto" ${(item.imageMode !== 'manual') ? 'selected' : ''}>Automatically rotate photos from this category</option>
+            <option value="manual" ${(item.imageMode === 'manual') ? 'selected' : ''}>Use one ImageKit photo URL</option>
+          </select>
+          <label class="block text-[11px] text-slate-300">Manual ImageKit URL (only for manual mode)</label>
+          <input id="homeCatImage${index}" type="url" value="${escapeHtml(item.image || '')}" placeholder="https://..." class="w-full px-3 py-2 rounded-lg bg-royal-900 border border-slate-700 text-white text-xs">
+          <label class="block text-[11px] text-slate-300">Change photo every (seconds)</label>
+          <input id="homeCatSeconds${index}" type="number" min="3" max="120" value="${Math.min(120, Math.max(3, Number(item.rotationSeconds) || 15))}" class="w-full px-3 py-2 rounded-lg bg-royal-900 border border-slate-700 text-white text-xs">
+          <p class="text-[10px] text-slate-500">${usedCount} product(s) currently use this category. Categories with products cannot be deleted until those products are moved or deleted.</p>
+        </div>`;
+      }).join('');
+    }
+
+    function openHomeCategoryEditor() {
+      if (!isOwnerMode) {
+        showNotificationToast('Owner Login Required', 'Please log in to edit homepage categories.');
+        return;
+      }
+      renderHomeCategoryEditorFields();
+      document.getElementById('homeCategoryEditorModal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function addHomeCategory() {
+      if (!isOwnerMode) return;
+      const base = 'custom_category';
+      let suffix = homeCategoryItems.length + 1;
+      let key = `${base}_${suffix}`;
+      while (homeCategoryItems.some(item => item.key === key) || Object.prototype.hasOwnProperty.call(categoryNames, key)) {
+        suffix += 1;
+        key = `${base}_${suffix}`;
+      }
+      homeCategoryItems.push({
+        key, title: `New Category ${suffix}`, titleHi: `नई श्रेणी ${suffix}`,
+        description: 'Browse designs in this category',
+        image: '', imageMode: 'auto', rotationSeconds: 15
+      });
+      renderHomeCategoryEditorFields();
+      refreshDesignCategorySelects();
+    }
+
+    function deleteHomeCategory(key) {
+      if (!isOwnerMode) return;
+      const usedCount = catalogItems.filter(product => product.category === key).length;
+      if (usedCount) {
+        showNotificationToast('Category is in use', 'Move or delete its products before deleting this category.');
+        return;
+      }
+      const category = homeCategoryItems.find(item => item.key === key);
+      if (!category) return;
+      if (!confirm(`Delete category "${category.title}"? This cannot be undone after publishing.`)) return;
+      homeCategoryItems = homeCategoryItems.filter(item => item.key !== key);
+      renderHomeCategoryEditorFields();
+      refreshDesignCategorySelects();
+    }
+
+    function closeHomeCategoryEditor() {
+      document.getElementById('homeCategoryEditorModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    async function saveHomeCategorySettings() {
+      let updated;
+      try {
+        updated = homeCategoryItems.map((item, index) => {
+          const title = document.getElementById(`homeCatTitle${index}`).value.trim();
+          const titleHi = document.getElementById(`homeCatTitleHi${index}`).value.trim();
+          const description = document.getElementById(`homeCatDesc${index}`).value.trim();
+          const imageMode = document.getElementById(`homeCatMode${index}`).value;
+          const image = document.getElementById(`homeCatImage${index}`).value.trim();
+          const rotationSeconds = Math.min(120, Math.max(3, Number(document.getElementById(`homeCatSeconds${index}`).value) || 15));
+          if (!title || !titleHi) throw new Error('Enter the category name in both English and Hindi.');
+          let cleanImage = '';
+          if (imageMode === 'manual' && image) {
+            const parsed = new URL(image);
+            if (parsed.protocol !== 'https:') throw new Error('Please use HTTPS image URLs.');
+            cleanImage = parsed.href;
+          }
+          return { ...item, title, titleHi, description, image: cleanImage, imageMode, rotationSeconds };
+        });
+        if (!updated.length) throw new Error('Keep at least one category on the website.');
+        const keys = updated.map(item => item.key);
+        if (new Set(keys).size !== keys.length) throw new Error('Category IDs must be unique.');
+      } catch (error) {
+        showNotificationToast('Check category details', error.message || 'Please check the settings.');
+        return;
+      }
+      const previous = homeCategoryItems.map(item => ({ ...item }));
+      const previousLive = liveSiteState.homeCategories;
+      homeCategoryItems = updated;
+      liveSiteState.homeCategories = updated.map(item => ({ ...item }));
+      refreshDesignCategorySelects();
+      renderHomeSubcategoryCards();
+      const published = await publishLiveState();
+      if (!published) {
+        homeCategoryItems = previous;
+        liveSiteState.homeCategories = previousLive;
+        refreshDesignCategorySelects();
+        renderHomeSubcategoryCards();
+        renderHomeCategoryEditorFields();
+        showNotificationToast('Not published', 'Your previous live settings were restored. Check your owner session and Netlify connection, then try again.');
+        return;
+      }
+      closeHomeCategoryEditor();
+      showNotificationToast('Homepage categories updated', 'Your category names and add/delete changes are now live for all visitors.');
+    }
+
+    async function initApp() {
+      document.getElementById('currentYearSpan').textContent = new Date().getFullYear();
+
+      // Load published data first so every visitor sees the same saved catalog.
+      try {
+        const response = await fetch(LIVE_DATA_ENDPOINT, { cache: 'no-store' });
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.state) {
+            liveSiteState = { ...liveSiteState, ...data.state };
+            liveDataAvailable = true;
+          }
+        }
+      } catch (error) {
+        console.warn('Live data could not be reached; using this device cache.', error);
+      }
+
+      loadStoredBrandAssets();
+      homeCategoryItems = Array.isArray(liveSiteState.homeCategories) && liveSiteState.homeCategories.length
+        ? liveSiteState.homeCategories.map(item => ({ ...item }))
+        : DEFAULT_HOME_CATEGORIES.map(item => ({ ...item }));
+      refreshDesignCategorySelects();
+
+      const savedLang = localStorage.getItem('sbs_selected_lang');
+      if (savedLang === 'hi' || savedLang === 'en') currentLang = savedLang;
+
+      // The shared Netlify database is the source of truth. Never show a private
+      // device-only catalog as if it were published to the public website.
+      catalogItems = cloneCatalogItems(liveSiteState.catalog);
+      liveSiteState.catalog = cloneCatalogItems(catalogItems);
+      lastPublishedCatalog = cloneCatalogItems(catalogItems);
+
+      if (sessionStorage.getItem('sbs_owner_logged_in') === 'true' && ownerSessionToken) {
+        toggleOwnerMode(true, false);
+      }
+
+      applyLanguage(currentLang);
+      refreshDesignCategorySelects(catalogActiveCategory, catalogActiveCategory);
+      renderHomeSubcategoryCards();
+      renderHomeWeeklyDrops();
+      renderHomeSubcategoryCards();
+      renderCatalogGrid(true);
+      renderGuideCatalogPreview();
+      updateStatusCounters();
+      window.addEventListener('hashchange', handleHashRouting);
+      if (publicRefreshTimer) clearInterval(publicRefreshTimer);
+      publicRefreshTimer = setInterval(refreshPublicCatalog, 15000);
+      document.addEventListener('visibilitychange', refreshPublicCatalog);
+      if (window.location.hash === '#categories') navigateTo('categories');
+      else navigateTo('home');
+    }
+
+    // SPA Page Navigator: switch between Page 1 (Home) & Page 2 (Categories)
+    function navigateTo(page, categoryFilter = null) {
+      currentPage = page;
+      const pageHome = document.getElementById('pageHomeView');
+      const pageCategories = document.getElementById('pageCategoriesView');
+      const navHome = document.getElementById('navTabHome');
+      const navCat = document.getElementById('navTabCategories');
+
+      if (page === 'categories') {
+        window.location.hash = '#categories';
+        pageHome.classList.add('hidden');
+        pageCategories.classList.remove('hidden');
+
+        // Update nav button states
+        navHome.className = "px-4 py-2 rounded-xl transition flex items-center gap-2 font-bold text-slate-300 hover:text-gold-300 hover:bg-royal-900 border border-transparent";
+        navCat.className = "px-4 py-2 rounded-xl transition flex items-center gap-2 font-bold text-royal-950 bg-gold-500 shadow-md";
+
+        if (categoryFilter) {
+          setCatalogCategoryFilter(categoryFilter);
+        } else {
+          renderCatalogGrid(true);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.hash = '#home';
+        pageCategories.classList.add('hidden');
+        pageHome.classList.remove('hidden');
+
+        navHome.className = "px-4 py-2 rounded-xl transition flex items-center gap-2 font-bold text-royal-950 bg-gold-500 shadow-md";
+        navCat.className = "px-4 py-2 rounded-xl transition flex items-center gap-2 font-bold text-slate-300 hover:text-gold-300 hover:bg-royal-900 border border-transparent hover:border-gold-500/30";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function handleHashRouting() {
+      if (window.location.hash === '#categories' && currentPage !== 'categories') {
+        navigateTo('categories');
+      } else if (window.location.hash === '#home' && currentPage !== 'home') {
+        navigateTo('home');
+      }
+    }
+
+    function ensureHomePageSection(sectionId) {
+      if (currentPage !== 'home') {
+        navigateTo('home');
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobileMenuDropdown');
+      const icon = document.getElementById('menuBarsIcon');
+      if (menu) menu.classList.add('hidden');
+      if (icon) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    }
+
+    // -----------------------------------------------------------------
+    // 4. LOGO & BANNER HANDLERS (SOLVING 404 & BROKEN PREVIEWS)
+    // -----------------------------------------------------------------
+    const DEFAULT_LOGO_URL = 'https://ik.imagekit.io/xpryz873w/Image%20for%20website/Logo.png?updatedAt=1794470413295';
+    const DEFAULT_BANNER_URL = 'https://ik.imagekit.io/xpryz873w/Image%20for%20website/Banner.png?updatedAt=1794470439415';
+
+    function loadStoredBrandAssets() {
+      const storedLogo = liveDataAvailable ? (liveSiteState.logo || DEFAULT_LOGO_URL) : DEFAULT_LOGO_URL;
+      const storedBanner = liveDataAvailable ? (liveSiteState.banner || DEFAULT_BANNER_URL) : DEFAULT_BANNER_URL;
+      setAllLogoSources(storedLogo);
+      setBannerSource(storedBanner);
+    }
+
+    function setAllLogoSources(src) {
+      ['headerLogoImg', 'footerLogoImg', 'aboutLogoImg', 'heritageLogoImg'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.src = src;
+          el.classList.remove('hidden');
+        }
+      });
+      const fallbacks = ['headerLogoFallback', 'footerLogoFallback', 'aboutLogoFallback', 'heritageLogoFallback'];
+      fallbacks.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    }
+
+    function setBannerSource(src) {
+      const bannerImg = document.getElementById('heroBannerImg');
+      if (bannerImg) {
+        bannerImg.src = src;
+        bannerImg.classList.remove('hidden');
+      }
+      const fb = document.getElementById('heroBannerFallback');
+      if (fb) fb.classList.add('hidden');
+    }
+
+    function handleLogoLoadSuccess(img) {
+      img.classList.remove('hidden');
+      const fallback = document.getElementById('headerLogoFallback');
+      if (fallback) fallback.classList.add('hidden');
+    }
+
+    function handleLogoLoadError(img) {
+      img.classList.add('hidden');
+      const fallback = document.getElementById('headerLogoFallback');
+      if (fallback) fallback.classList.remove('hidden');
+    }
+
+    function handleBannerLoadSuccess(img) {
+      img.classList.remove('hidden');
+      const fallback = document.getElementById('heroBannerFallback');
+      if (fallback) fallback.classList.add('hidden');
+    }
+
+    function handleBannerLoadError(img) {
+      img.classList.add('hidden');
+      const fallback = document.getElementById('heroBannerFallback');
+      if (fallback) fallback.classList.remove('hidden');
+    }
+
+    function openBrandingModal() {
+      const storedLogo = liveDataAvailable ? (liveSiteState.logo || DEFAULT_LOGO_URL) : DEFAULT_LOGO_URL;
+      const storedBanner = liveDataAvailable ? (liveSiteState.banner || DEFAULT_BANNER_URL) : DEFAULT_BANNER_URL;
+
+      document.getElementById('brandLogoUrlInput').value = storedLogo.startsWith('data:') ? '' : storedLogo;
+      document.getElementById('brandBannerUrlInput').value = storedBanner.startsWith('data:') ? '' : storedBanner;
+
+      if (storedLogo) {
+        document.getElementById('brandingLogoPreview').src = storedLogo;
+        document.getElementById('brandingLogoPreview').classList.remove('hidden');
+        document.getElementById('brandingLogoFallback').classList.add('hidden');
+      }
+      if (storedBanner) {
+        document.getElementById('brandingBannerPreview').src = storedBanner;
+        document.getElementById('brandingBannerPreview').classList.remove('hidden');
+        document.getElementById('brandingBannerFallback').classList.add('hidden');
+      }
+
+      document.getElementById('brandingModal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeBrandingModal() {
+      document.getElementById('brandingModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function previewSelectedImage(fileInput, imgId, fallbackId) {
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.getElementById(imgId);
+          const fallback = document.getElementById(fallbackId);
+          img.src = e.target.result;
+          img.classList.remove('hidden');
+          if (fallback) fallback.classList.add('hidden');
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      }
+    }
+
+    async function handleSaveBranding(e) {
+      e.preventDefault();
+      let logoData = document.getElementById('brandLogoUrlInput').value.trim();
+      let bannerData = document.getElementById('brandBannerUrlInput').value.trim();
+
+      const logoFile = document.getElementById('brandLogoFileInput').files[0];
+      const bannerFile = document.getElementById('brandBannerFileInput').files[0];
+
+      if (logoFile || bannerFile) {
+        showNotificationToast((currentLang === 'hi') ? 'ImageKit URL का उपयोग करें' : 'Use ImageKit URLs', 'Upload images to ImageKit first, then paste their HTTPS URLs.');
+        return;
+      }
+      for (const candidate of [logoData, bannerData].filter(Boolean)) {
+        try { if (new URL(candidate).protocol !== 'https:') throw new Error('HTTPS required'); }
+        catch (_) {
+          showNotificationToast((currentLang === 'hi') ? 'गलत इमेज URL' : 'Invalid Image URL', 'Please enter a valid HTTPS ImageKit URL.');
+          return;
+        }
+      }
+
+      const previousBranding = { logo: liveSiteState.logo, banner: liveSiteState.banner };
+      if (logoData) {
+        liveSiteState.logo = logoData;
+        setAllLogoSources(logoData);
+      }
+      if (bannerData) {
+        liveSiteState.banner = bannerData;
+        setBannerSource(bannerData);
+      }
+
+      const published = await publishLiveState();
+      if (!published) {
+        liveSiteState.logo = previousBranding.logo;
+        liveSiteState.banner = previousBranding.banner;
+        setAllLogoSources(previousBranding.logo || DEFAULT_LOGO_URL);
+        setBannerSource(previousBranding.banner || DEFAULT_BANNER_URL);
+        showNotificationToast('Not published', 'Your previous live logo and banner were restored. Check the Netlify connection and try again.');
+        return;
+      }
+      closeBrandingModal();
+      showNotificationToast(
+        (currentLang === 'hi') ? 'तस्वीरें लाइव सेव हुईं!' : 'Images Published Live!',
+        (currentLang === 'hi') ? 'अब सभी विज़िटर को नया लोगो और बैनर दिखेगा।' : 'The new logo and banner are now saved for all website visitors.'
+      );
+    }
+
+    async function resetBrandAssets() {
+      const previousBranding = { logo: liveSiteState.logo, banner: liveSiteState.banner };
+      liveSiteState.logo = null;
+      liveSiteState.banner = null;
+      setAllLogoSources(DEFAULT_LOGO_URL);
+      setBannerSource(DEFAULT_BANNER_URL);
+      const published = await publishLiveState();
+      if (!published) {
+        liveSiteState.logo = previousBranding.logo;
+        liveSiteState.banner = previousBranding.banner;
+        setAllLogoSources(previousBranding.logo || DEFAULT_LOGO_URL);
+        setBannerSource(previousBranding.banner || DEFAULT_BANNER_URL);
+        showNotificationToast('Not published', 'Your previous live branding was restored. Check Netlify and try again.');
+        return;
+      }
+      closeBrandingModal();
+      showNotificationToast(
+        (currentLang === 'hi') ? 'डिफॉल्ट तस्वीरें बहाल' : 'Default Images Restored',
+        (currentLang === 'hi') ? 'बदलाव सभी विज़िटर के लिए लाइव हैं।' : 'The default branding is now live for all visitors.'
+      );
+    }
+
+    function readFileAsDataURL(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function saveCatalogState() {
+      // Keep an independent snapshot so failed saves can genuinely roll back edits.
+      const previousCatalog = cloneCatalogItems(lastPublishedCatalog);
+      const candidateCatalog = cloneCatalogItems(catalogItems);
+      liveSiteState.catalog = cloneCatalogItems(candidateCatalog);
+      const published = await publishLiveState();
+      if (published) {
+        catalogItems = cloneCatalogItems(candidateCatalog);
+        lastPublishedCatalog = cloneCatalogItems(candidateCatalog);
+        renderHomeSubcategoryCards();
+        return true;
+      }
+      // If the server did not confirm the save, restore the last server-published state.
+      catalogItems = cloneCatalogItems(previousCatalog);
+      liveSiteState.catalog = cloneCatalogItems(previousCatalog);
+      renderHomeSubcategoryCards();
+      renderHomeWeeklyDrops();
+      renderCatalogGrid(false);
+      renderGuideCatalogPreview();
+      updateStatusCounters();
+      return false;
+    }
+
+    async function publishLiveState() {
+      if (!ownerSessionToken) {
+        showNotificationToast(
+          (currentLang === 'hi') ? 'मालिक लॉगिन जरूरी है' : 'Owner Login Required',
+          (currentLang === 'hi') ? 'लाइव बदलाव के लिए दोबारा लॉगिन करें।' : 'Please log in again before publishing live changes.'
+        );
+        return false;
+      }
+      try {
+        const response = await fetch(LIVE_DATA_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-owner-token': ownerSessionToken },
+          body: JSON.stringify({ action: 'save', state: liveSiteState })
+        });
+        if (!response.ok) throw new Error(`Publish failed (${response.status})`);
+        const result = await response.json();
+        if (!result.saved) throw new Error('Server did not confirm save');
+        liveDataAvailable = true;
+        return true;
+      } catch (error) {
+        console.error('Live publish failed:', error);
+        showNotificationToast(
+          (currentLang === 'hi') ? 'लाइव सेव नहीं हुआ' : 'Live Save Failed',
+          (currentLang === 'hi') ? 'Netlify से सेव की पुष्टि नहीं मिली। कोई बदलाव सार्वजनिक नहीं किया गया।' : 'Netlify did not confirm the save. The public catalog was not changed.'
+        );
+        return false;
+      }
+    }
+
+    async function refreshPublicCatalog() {
+      if (isOwnerMode || document.visibilityState === 'hidden') return;
+      try {
+        const response = await fetch(LIVE_DATA_ENDPOINT, { cache: 'no-store' });
+        if (!response.ok) return;
+        const data = await response.json();
+        if (!data || !data.state) return;
+        const remote = data.state;
+        const changed = JSON.stringify(remote.catalog || []) !== JSON.stringify(catalogItems);
+        liveSiteState = { ...liveSiteState, ...remote };
+        if (changed) {
+          catalogItems = cloneCatalogItems(remote.catalog);
+          lastPublishedCatalog = cloneCatalogItems(catalogItems);
+          renderHomeSubcategoryCards();
+          renderHomeWeeklyDrops();
+          renderCatalogGrid(false);
+          renderGuideCatalogPreview();
+          updateStatusCounters();
+        }
+        if (Object.prototype.hasOwnProperty.call(remote, 'logo')) setAllLogoSources(remote.logo || DEFAULT_LOGO_URL);
+        if (Object.prototype.hasOwnProperty.call(remote, 'banner')) setBannerSource(remote.banner || DEFAULT_BANNER_URL);
+        if (Array.isArray(remote.homeCategories)) {
+          const categoryChanged = JSON.stringify(remote.homeCategories) !== JSON.stringify(homeCategoryItems);
+          if (categoryChanged) {
+            homeCategoryItems = remote.homeCategories.map(item => ({ ...item }));
+            renderHomeSubcategoryCards();
+          }
+        }
+      } catch (error) {
+        console.warn('Public catalog refresh skipped:', error);
+      }
+    }
+
+    function updateStatusCounters() {
+      const inStockCount = catalogItems.filter(i => i.status === 'in_stock').length;
+      const onOrderCount = catalogItems.filter(i => i.status === 'on_order').length;
+      const t = i18n[currentLang];
+      const inBadge = document.getElementById('catInStockBadge');
+      const onBadge = document.getElementById('catOnOrderBadge');
+      if (inBadge) inBadge.textContent = `${inStockCount} ${t.statusInStock}`;
+      if (onBadge) onBadge.textContent = `${onOrderCount} ${t.statusOnOrder}`;
+    }
+
+    // -----------------------------------------------------------------
+    // 5. LANGUAGE TOGGLER
+    // -----------------------------------------------------------------
+    function toggleLanguage() {
+      currentLang = (currentLang === 'en') ? 'hi' : 'en';
+      localStorage.setItem('sbs_selected_lang', currentLang);
+      applyLanguage(currentLang);
+      refreshDesignCategorySelects(catalogActiveCategory, catalogActiveCategory);
+      renderHomeSubcategoryCards();
+      renderHomeWeeklyDrops();
+      renderCatalogGrid(false);
+      renderGuideCatalogPreview();
+      updateStatusCounters();
+    }
+
+    function applyLanguage(lang) {
+      const t = i18n[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.innerHTML = t[key];
+      });
+
+      document.getElementById('langToggleLabel').textContent = t.langBtnLabel;
+      const mobileLabel = document.getElementById('mobileLangToggleLabel');
+      if (mobileLabel) mobileLabel.textContent = (lang === 'en') ? '🇮🇳 हिंदी' : '🇬🇧 English';
+
+      const searchInput = document.getElementById('catalogSearchInput');
+      if (searchInput) searchInput.placeholder = t.searchPlaceholder;
+
+      const bannerText = document.getElementById('ownerBannerText');
+      if (bannerText) bannerText.textContent = t.ownerBannerActive;
+
+      // Dynamic prefilled WhatsApp greetings
+      const headerWA = document.getElementById('headerWhatsAppBtn');
+      if (headerWA) {
+        const msg = (lang === 'hi') 
+          ? 'नमस्ते संदीप जी, मैं शंकर चूड़ी स्टोर की वेबसाइट पर आपके चूड़ी डिजाइन देख रहा हूँ।'
+          : 'Namaste Sandeep ji, I am browsing the bangle designs on your Shankar Bangle Store website.';
+        headerWA.href = `https://wa.me/919927053101?text=${encodeURIComponent(msg)}`;
+      }
+
+      const heroWA = document.getElementById('heroWhatsAppBtn');
+      if (heroWA) {
+        const msg = (lang === 'hi') 
+          ? 'नमस्ते संदीप जी, मैं शंकर चूड़ी स्टोर के नए डिजाइन देखना चाहता हूँ।'
+          : 'Namaste Sandeep ji, I am interested in seeing your latest bangle designs at Shankar Bangle Store.';
+        heroWA.href = `https://wa.me/919927053101?text=${encodeURIComponent(msg)}`;
+      }
+    }
+
+    // -----------------------------------------------------------------
+    // 6. OWNER MODE (PIN VERIFIED ON SERVER)
+    // -----------------------------------------------------------------
+    function handleOwnerModeClick() {
+      if (isOwnerMode) {
+        toggleOwnerMode(false);
+      } else {
+        openOwnerPinModal();
+      }
+    }
+
+    function openOwnerPinModal() {
+      document.getElementById('pinErrorText').classList.add('hidden');
+      document.getElementById('ownerPinInput').value = '';
+      document.getElementById('ownerPinModal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeOwnerPinModal() {
+      document.getElementById('ownerPinModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    async function verifyOwnerPin(e) {
+      e.preventDefault();
+      const pin = document.getElementById('ownerPinInput').value.trim();
+      try {
+        const response = await fetch(LIVE_DATA_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'auth', pin })
+        });
+        if (!response.ok) throw new Error('Incorrect PIN or server not configured.');
+        const authResult = await response.json();
+        if (!authResult.token) throw new Error('Server did not issue an owner session.');
+        ownerSessionToken = authResult.token;
+        sessionStorage.setItem('sbs_owner_session_token', ownerSessionToken);
+        closeOwnerPinModal();
+        toggleOwnerMode(true, true);
+      } catch (error) {
+        document.getElementById('pinErrorText').classList.remove('hidden');
+        console.error('Owner authentication failed:', error);
+      }
+    }
+
+    function toggleOwnerMode(enable, showToast = true) {
+      isOwnerMode = enable;
+      const banner = document.getElementById('ownerActiveBanner');
+      const navBtn = document.getElementById('ownerModeNavBtn');
+      const btnLabel = document.getElementById('ownerBtnLabel');
+      const t = i18n[currentLang];
+
+      if (enable) {
+        sessionStorage.setItem('sbs_owner_logged_in', 'true');
+        banner.classList.remove('hidden');
+        navBtn.classList.add('bg-gold-500', 'text-royal-950', 'border-gold-400');
+        navBtn.classList.remove('text-gold-300/80');
+        btnLabel.textContent = (currentLang === 'hi') ? 'मालिक मोड (सक्रिय)' : 'Owner Mode (ON)';
+        if (showToast) {
+          showNotificationToast(
+            (currentLang === 'hi') ? 'मालिक मोड चालू है' : 'Owner Mode Enabled', 
+            (currentLang === 'hi') ? 'अब आप किसी भी चूड़ी कार्ड पर टैप करके तुरंत स्थिति बदल सकते हैं।' : 'Tap any bangle card to switch availability status instantly.'
+          );
+        }
+      } else {
+        sessionStorage.removeItem('sbs_owner_logged_in');
+        sessionStorage.removeItem('sbs_owner_session_token');
+        ownerSessionToken = '';
+        banner.classList.add('hidden');
+        navBtn.classList.remove('bg-gold-500', 'text-royal-950', 'border-gold-400');
+        navBtn.classList.add('text-gold-300/80');
+        btnLabel.textContent = t.ownerLogin;
+        if (showToast) {
+          showNotificationToast(
+            (currentLang === 'hi') ? 'मालिक मोड बंद' : 'Owner Mode Disabled', 
+            (currentLang === 'hi') ? 'सामान्य ग्राहक दृश्य पर वापस।' : 'Switched back to customer view.'
+          );
+        }
+      }
+
+      renderHomeWeeklyDrops();
+      renderCatalogGrid(false);
+    }
+
+    async function toggleDesignStatus(id, event) {
+      if (event) event.stopPropagation();
+      const item = catalogItems.find(i => i.id === id);
+      if (!item) return;
+
+      item.status = (item.status === 'in_stock') ? 'on_order' : 'in_stock';
+      const published = await saveCatalogState();
+      if (!published) return;
+      updateStatusCounters();
+      renderHomeWeeklyDrops();
+      renderCatalogGrid(false);
+
+      const t = i18n[currentLang];
+      const statusText = (item.status === 'in_stock') ? t.statusInStock : t.statusOnOrder;
+      showNotificationToast((currentLang === 'hi') ? 'स्थिति लाइव अपडेट हुई' : 'Availability Published Live', `${item.sku} → ${statusText}`);
+
+      const modal = document.getElementById('imageLightboxModal');
+      if (!modal.classList.contains('hidden')) {
+        openLightbox(id);
+      }
+    }
+
+    // -----------------------------------------------------------------
+    // 7. HOME WEEKLY DROPS SHELF
+    // -----------------------------------------------------------------
+    function renderHomeWeeklyDrops() {
+      const container = document.getElementById('homeWeeklyDropsContainer');
+      const weeklyItems = catalogItems.filter(item => item.isNew).slice(0, 6);
+      const t = i18n[currentLang];
+
+      if (!container) return;
+
+      container.innerHTML = weeklyItems.map(item => `
+        <div class="w-64 sm:w-72 shrink-0 glass-card rounded-2xl overflow-hidden border border-gold-500/20 flex flex-col justify-between hover:border-gold-400 transition shadow-lg">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-royal-950 cursor-pointer" onclick="openLightbox(${item.id})">
+              <img src="${item.img}" alt="${escapeHtml(getDesignName(item))}" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+              <div class="absolute top-2.5 left-2.5 flex flex-col gap-1">
+                <span class="px-2 py-0.5 rounded bg-royal-950/85 text-gold-300 font-mono text-[10px] font-bold border border-gold-500/30">${item.sku}</span>
+              </div>
+              <div class="absolute top-2.5 right-2.5">
+                ${renderStatusPill(item.status, item.id)}
+              </div>
+            </div>
+            <div class="p-3.5 space-y-1">
+              <span class="text-[10px] uppercase font-bold tracking-wider text-gold-400 block">${getCategoryLabel(item.category)}</span>
+              <h4 class="font-serif text-xs sm:text-sm font-bold text-white hover:text-gold-300 line-clamp-1 cursor-pointer" onclick="openLightbox(${item.id})">${escapeHtml(getDesignName(item))}</h4>
+            </div>
+          </div>
+          <div class="p-3.5 pt-0 flex gap-2">
+            <button onclick="openLightbox(${item.id})" class="flex-1 py-1.5 px-2 rounded-lg bg-royal-800 hover:bg-royal-750 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1 border border-white/5">
+              <i class="fa-solid fa-magnifying-glass-plus text-[10px]"></i> ${t.viewFullBtn}
+            </button>
+            <a href="${generateWhatsAppLink(item)}" target="_blank" rel="noopener noreferrer" class="py-1.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-1">
+              <i class="fa-brands fa-whatsapp text-xs"></i> ${t.inquireBtn}
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+
+    function renderGuideCatalogPreview() {
+      const item = Array.isArray(catalogItems) ? catalogItems.find(entry => entry && entry.img) : null;
+      const image = document.getElementById('guideCatalogImage');
+      const empty = document.getElementById('guideCatalogNoImage');
+      const sku = document.getElementById('guideCatalogSku');
+      const name = document.getElementById('guideCatalogName');
+      if (!image || !empty || !sku || !name) return;
+      if (!item) {
+        image.classList.add('hidden');
+        empty.classList.remove('hidden');
+        sku.textContent = 'SBS-—';
+        name.textContent = i18n[currentLang].miniCatalogName;
+        return;
+      }
+      image.onload = () => { image.classList.remove('hidden'); empty.classList.add('hidden'); };
+      image.onerror = () => { image.classList.add('hidden'); empty.classList.remove('hidden'); };
+      image.src = item.img;
+      image.alt = getDesignName(item) || 'Bangle design from the live catalog';
+      sku.textContent = item.sku || '';
+      name.textContent = getDesignName(item) || i18n[currentLang].miniCatalogName;
+    }
+
+    // -----------------------------------------------------------------
+    // 8. PAGE 2: CATALOG GRID & FILTERING
+    // -----------------------------------------------------------------
+    function getFilteredCatalogItems() {
+      return catalogItems.filter(item => {
+        if (catalogActiveStock !== 'all' && item.status !== catalogActiveStock) return false;
+        if (catalogActiveCategory !== 'all' && item.category !== catalogActiveCategory) return false;
+        if (catalogSearchQuery.trim() !== '') {
+          const q = catalogSearchQuery.toLowerCase().trim();
+          const matchSku = item.sku.toLowerCase().includes(q);
+          const matchName = `${item.name || ''} ${item.nameHi || ''}`.toLowerCase().includes(q);
+          const matchDesc = item.desc.toLowerCase().includes(q);
+          if (!matchSku && !matchName && !matchDesc) return false;
+        }
+        return true;
+      });
+    }
+
+    function renderCatalogGrid(resetLimit = true) {
+      if (resetLimit) catalogVisibleLimit = ITEMS_PER_CHUNK;
+
+      const filtered = getFilteredCatalogItems();
+      const grid = document.getElementById('catalogGrid');
+      const emptyState = document.getElementById('catalogEmptyState');
+      const loadMoreContainer = document.getElementById('catalogLoadMoreContainer');
+      const visibleCount = document.getElementById('catalogVisibleCount');
+      const totalCount = document.getElementById('catalogTotalCount');
+      const t = i18n[currentLang];
+
+      if (!grid) return;
+
+      totalCount.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        loadMoreContainer.classList.add('hidden');
+        visibleCount.textContent = '0';
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      const itemsToRender = filtered.slice(0, catalogVisibleLimit);
+      visibleCount.textContent = itemsToRender.length;
+
+      grid.innerHTML = itemsToRender.map(item => `
+        <div class="glass-card rounded-2xl overflow-hidden border border-gold-500/20 flex flex-col justify-between hover:border-gold-400 transition-all duration-300 hover:-translate-y-1 shadow-lg group">
+          <div>
+            <div class="relative aspect-[4/3] overflow-hidden bg-royal-950 cursor-pointer" onclick="openLightbox(${item.id})">
+              <img src="${item.img}" alt="${escapeHtml(getDesignName(item))}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+              
+              <div class="absolute top-2.5 left-2.5 flex flex-wrap gap-1">
+                <span class="px-2 py-0.5 rounded bg-royal-950/85 text-gold-300 font-mono text-[10px] font-bold border border-gold-500/30">${item.sku}</span>
+              </div>
+
+              <div class="absolute top-2.5 right-2.5">
+                ${renderStatusPill(item.status, item.id)}
+              </div>
+            </div>
+
+            <div class="p-4 space-y-1.5">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-gold-400 block">${getCategoryLabel(item.category)}</span>
+              <h3 class="font-serif text-sm sm:text-base font-bold text-white group-hover:text-gold-300 transition line-clamp-1 cursor-pointer" onclick="openLightbox(${item.id})">${escapeHtml(getDesignName(item))}</h3>
+              <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed font-light">${item.desc}</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0 space-y-2">
+            ${isOwnerMode ? `
+              <div class="grid grid-cols-2 gap-2">
+                <button onclick="toggleDesignStatus(${item.id}, event)" class="py-1.5 px-2 rounded-lg bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/40 text-gold-300 text-[11px] font-bold transition flex items-center justify-center gap-1">
+                  <i class="fa-solid fa-repeat text-[10px]"></i>
+                  <span class="truncate">${item.status === 'in_stock' ? t.switchToOnOrder : t.switchToInStock}</span>
+                </button>
+                <button onclick="openEditDesignModal(${item.id}, event)" class="py-1.5 px-2 rounded-lg bg-royal-800 hover:bg-royal-750 border border-gold-500/40 text-amber-300 text-[11px] font-bold transition flex items-center justify-center gap-1">
+                  <i class="fa-solid fa-pen-to-square text-[10px]"></i>
+                  <span>${t.editDesignBtn}</span>
+                </button>
+              </div>
+            ` : ''}
+
+            <div class="flex gap-2">
+              <button onclick="openLightbox(${item.id})" class="flex-1 py-2 px-3 rounded-xl bg-royal-800 hover:bg-royal-750 text-slate-200 border border-white/10 text-xs font-semibold transition flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-magnifying-glass-plus text-xs"></i> ${t.viewFullBtn}
+              </button>
+              <a href="${generateWhatsAppLink(item)}" target="_blank" rel="noopener noreferrer" class="py-2 px-3.5 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white text-xs font-semibold transition flex items-center justify-center gap-1.5">
+                <i class="fa-brands fa-whatsapp text-sm"></i> ${t.inquireBtn}
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      if (filtered.length > catalogVisibleLimit) {
+        loadMoreContainer.classList.remove('hidden');
+        document.getElementById('catalogLoadMoreText').textContent = `${t.loadMoreText} (${catalogVisibleLimit} / ${filtered.length})`;
+      } else {
+        loadMoreContainer.classList.add('hidden');
+      }
+    }
+
+    function loadMoreCatalogDesigns() {
+      catalogVisibleLimit += ITEMS_PER_CHUNK;
+      renderCatalogGrid(false);
+    }
+
+    function renderStatusPill(status, itemId) {
+      const t = i18n[currentLang];
+      if (status === 'in_stock') {
+        return `
+          <button type="button" ${isOwnerMode ? `onclick="toggleDesignStatus(${itemId}, event)"` : ''} class="px-2.5 py-0.5 rounded-full bg-emerald-950/90 border border-emerald-500/60 text-emerald-300 font-bold text-[11px] flex items-center gap-1.5 shadow ${isOwnerMode ? 'hover:scale-105 cursor-pointer ring-1 ring-gold-400' : ''}">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>${t.statusInStock}</span>
+            ${isOwnerMode ? '<i class="fa-solid fa-pen text-[9px] ml-0.5"></i>' : ''}
+          </button>
+        `;
+      } else {
+        return `
+          <button type="button" ${isOwnerMode ? `onclick="toggleDesignStatus(${itemId}, event)"` : ''} class="px-2.5 py-0.5 rounded-full bg-amber-950/90 border border-amber-500/60 text-amber-300 font-bold text-[11px] flex items-center gap-1.5 shadow ${isOwnerMode ? 'hover:scale-105 cursor-pointer ring-1 ring-gold-400' : ''}">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>${t.statusOnOrder}</span>
+            ${isOwnerMode ? '<i class="fa-solid fa-pen text-[9px] ml-0.5"></i>' : ''}
+          </button>
+        `;
+      }
+    }
+
+    function getCategoryLabel(catKey) {
+      const liveCategory = homeCategoryItems.find(item => item.key === catKey);
+      if (liveCategory) {
+        return currentLang === 'hi'
+          ? (liveCategory.titleHi || liveCategory.title)
+          : (liveCategory.title || liveCategory.titleHi || catKey);
+      }
+      if (categoryNames[catKey]) {
+        return categoryNames[catKey][currentLang] || categoryNames[catKey].en;
+      }
+      return catKey;
+    }
+
+    function refreshDesignCategorySelects(selectedNew, selectedEdit) {
+      const options = homeCategoryItems.map(item =>
+        `<option value="${escapeHtml(item.key)}">${escapeHtml(getCategoryLabel(item.key))}</option>`
+      ).join('');
+      ['newCategory', 'editCategory'].forEach(id => {
+        const select = document.getElementById(id);
+        if (!select) return;
+        const selected = id === 'newCategory' ? selectedNew : selectedEdit;
+        select.innerHTML = options;
+        if (selected && homeCategoryItems.some(item => item.key === selected)) select.value = selected;
+      });
+    }
+
+    function handleCatalogSearch() {
+      const input = document.getElementById('catalogSearchInput');
+      catalogSearchQuery = input.value;
+      const clearBtn = document.getElementById('clearCatalogSearchBtn');
+      if (catalogSearchQuery.trim() !== '') {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+      renderCatalogGrid(true);
+    }
+
+    function clearCatalogSearch() {
+      const input = document.getElementById('catalogSearchInput');
+      input.value = '';
+      catalogSearchQuery = '';
+      document.getElementById('clearCatalogSearchBtn').classList.add('hidden');
+      renderCatalogGrid(true);
+    }
+
+    function setCatalogStockFilter(stockType) {
+      catalogActiveStock = stockType;
+      document.querySelectorAll('.catalog-stock-pill').forEach(btn => {
+        if (btn.getAttribute('data-stock') === stockType) {
+          btn.classList.add('bg-gold-500', 'text-royal-950');
+          btn.classList.remove('bg-royal-850', 'text-emerald-400', 'text-amber-400');
+        } else {
+          btn.classList.remove('bg-gold-500', 'text-royal-950');
+          btn.classList.add('bg-royal-850');
+          if (btn.getAttribute('data-stock') === 'in_stock') btn.classList.add('text-emerald-400');
+          if (btn.getAttribute('data-stock') === 'on_order') btn.classList.add('text-amber-400');
+        }
+      });
+      renderCatalogGrid(true);
+    }
+
+    function setCatalogCategoryFilter(category) {
+      catalogActiveCategory = category;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.getAttribute('data-cat') === category) {
+          btn.classList.add('bg-gold-500', 'text-royal-950');
+          btn.classList.remove('bg-royal-800', 'text-slate-300');
+        } else {
+          btn.classList.remove('bg-gold-500', 'text-royal-950');
+          btn.classList.add('bg-royal-800', 'text-slate-300');
+        }
+      });
+
+      const indicator = document.getElementById('catalogSubCatIndicator');
+      if (indicator) {
+        if (category === 'all') {
+          indicator.textContent = (currentLang === 'hi') ? 'सभी उप-श्रेणियाँ देख रहे हैं' : 'Viewing: All Sub-Categories';
+        } else {
+          const subName = getCategoryLabel(category);
+          indicator.textContent = (currentLang === 'hi') ? `उप-श्रेणी: ${subName}` : `Sub-Category: ${subName}`;
+        }
+      }
+
+      renderCatalogGrid(true);
+    }
+
+    function resetCatalogFilters() {
+      catalogActiveCategory = 'all';
+      catalogActiveStock = 'all';
+      catalogSearchQuery = '';
+      document.getElementById('catalogSearchInput').value = '';
+      document.getElementById('clearCatalogSearchBtn').classList.add('hidden');
+      setCatalogStockFilter('all');
+      setCatalogCategoryFilter('all');
+    }
+
+    // -----------------------------------------------------------------
+    // 9. LIGHTBOX MODAL & WHATSAPP GENERATION
+    // -----------------------------------------------------------------
+    function openLightbox(id) {
+      const item = catalogItems.find(i => i.id === id);
+      if (!item) return;
+
+      const t = i18n[currentLang];
+      document.getElementById('modalImg').src = item.img;
+      document.getElementById('modalSku').textContent = item.sku;
+      document.getElementById('modalCategory').textContent = getCategoryLabel(item.category);
+      document.getElementById('modalTitle').textContent = getDesignName(item);
+      document.getElementById('modalDesc').textContent = item.desc;
+
+      const statusContainer = document.getElementById('modalStatusBadge');
+      const isAvailable = (item.status === 'in_stock');
+      statusContainer.innerHTML = isAvailable 
+        ? `<span class="px-3 py-1 rounded-full bg-emerald-950 border border-emerald-500 text-emerald-300 font-bold text-xs flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> ${t.statusInStock}</span>`
+        : `<span class="px-3 py-1 rounded-full bg-amber-950 border border-amber-500 text-amber-300 font-bold text-xs flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span> ${t.statusOnOrder}</span>`;
+
+      const ownerArea = document.getElementById('modalOwnerToggleArea');
+      const ownerBtn = document.getElementById('modalOwnerToggleBtn');
+      const ownerEditBtn = document.getElementById('modalOwnerEditBtn');
+      if (isOwnerMode) {
+        ownerArea.classList.remove('hidden');
+        ownerBtn.className = isAvailable 
+          ? 'px-3 py-1 rounded-lg text-xs font-bold bg-amber-500 text-royal-950 hover:bg-amber-400 transition'
+          : 'px-3 py-1 rounded-lg text-xs font-bold bg-emerald-500 text-royal-950 hover:bg-emerald-400 transition';
+        ownerBtn.textContent = isAvailable ? t.switchToOnOrder : t.switchToInStock;
+        ownerBtn.onclick = () => { toggleDesignStatus(item.id); };
+        if (ownerEditBtn) {
+          ownerEditBtn.onclick = (e) => {
+            closeLightboxModal();
+            openEditDesignModal(item.id, e);
+          };
+        }
+      } else {
+        ownerArea.classList.add('hidden');
+      }
+
+      document.getElementById('modalWhatsAppBtn').href = generateWhatsAppLink(item);
+      document.getElementById('imageLightboxModal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeLightboxModal() {
+      document.getElementById('imageLightboxModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function generateWhatsAppLink(item) {
+      const t = i18n[currentLang];
+      const statusText = (item.status === 'in_stock') ? t.statusInStock : t.statusOnOrder;
+      let text = '';
+      if (currentLang === 'hi') {
+        text = `नमस्ते संदीप जी, मैं शंकर चूड़ी स्टोर की वेबसाइट पर डिजाइन *[${item.sku}]* - ${getDesignName(item)} देख रहा हूँ। यह वर्तमान में *[${statusText}]* है। कृपया मुझे इसकी और फोटो व जानकारी भेजें।`;
+      } else {
+        text = `Namaste Sandeep ji, I am viewing the Shankar Bangle Store showcase. I am interested in design *[${item.sku}]* - ${getDesignName(item)} which is marked as *[${statusText}]*. Please share more details.`;
+      }
+      return `https://wa.me/919927053101?text=${encodeURIComponent(text)}`;
+    }
+
+    // -----------------------------------------------------------------
+    // 10. ADD NEW DESIGN (OWNER)
+    // -----------------------------------------------------------------
+    function openAddDesignModal() {
+      const nextSku = `SBS-${catalogItems.length + 101}`;
+      refreshDesignCategorySelects();
+      document.getElementById('newSku').value = nextSku;
+      document.getElementById('addDesignModal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeAddDesignModal() {
+      document.getElementById('addDesignModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Prefer the language-specific design name; old catalog entries remain compatible.
+    function getDesignName(item) {
+      if (!item) return '';
+      return currentLang === 'hi'
+        ? (item.nameHi || item.name || '')
+        : (item.name || item.nameHi || '');
+    }
+
+    function previewNewImage(url) {
+      const wrap = document.getElementById('newImagePreviewWrap');
+      const img = document.getElementById('newImagePreview');
+      if (!wrap || !img) return;
+      if (!url.trim()) {
+        wrap.classList.add('hidden');
+        img.removeAttribute('src');
+        return;
+      }
+      try {
+        const parsed = new URL(url.trim());
+        if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') throw new Error('Invalid image URL');
+        img.onerror = () => wrap.classList.add('hidden');
+        img.onload = () => wrap.classList.remove('hidden');
+        img.src = parsed.href;
+      } catch (_) {
+        wrap.classList.add('hidden');
+      }
+    }
+
+    function handleCreateDesign(e) {
+      e.preventDefault();
+      const sku = document.getElementById('newSku').value.trim().toUpperCase();
+      const title = document.getElementById('newTitle').value.trim();
+      const titleHi = document.getElementById('newTitleHi').value.trim();
+      const category = document.getElementById('newCategory').value;
+      const status = document.getElementById('newStatus').value;
+      const desc = document.getElementById('newDesc').value.trim() || 'Traditional and modern glass bangle design from Shankar Bangle Store, Firozabad.';
+      const isNew = document.getElementById('newIsWeeklyDrop').checked;
+      const imgUrl = document.getElementById('newImageUrl').value.trim();
+
+      let parsedImageUrl;
+      try {
+        parsedImageUrl = new URL(imgUrl);
+        if (parsedImageUrl.protocol !== 'https:') throw new Error('HTTPS required');
+      } catch (_) {
+        showNotificationToast(
+          (currentLang === 'hi') ? 'फोटो URL सही नहीं है' : 'Invalid Image URL',
+          (currentLang === 'hi') ? 'ImageKit का पूरा https URL डालें।' : 'Please paste the full ImageKit https URL.'
+        );
+        return;
+      }
+
+      if (!title || !titleHi) {
+        showNotificationToast('Both design names are required', 'Please enter the English and Hindi design names.');
+        return;
+      }
+      saveAndAppendNewDesign(sku, title, titleHi, category, status, desc, isNew, parsedImageUrl.href);
+    }
+
+    async function saveAndAppendNewDesign(sku, title, titleHi, category, status, desc, isNew, img) {
+      const newDesign = {
+        id: Date.now(),
+        sku: sku,
+        name: title,
+        nameHi: titleHi,
+        category: category,
+        status: status,
+        isNew: isNew,
+        desc: desc,
+        img: img
+      };
+
+      catalogItems.unshift(newDesign);
+      const publishButton = document.querySelector('#newDesignForm button[type="submit"]');
+      if (publishButton) { publishButton.disabled = true; publishButton.textContent = (currentLang === 'hi') ? 'सेव हो रहा है...' : 'Publishing...'; }
+      const published = await saveCatalogState();
+      if (published) {
+        updateStatusCounters();
+        document.getElementById('newDesignForm').reset();
+        document.getElementById('newImagePreviewWrap')?.classList.add('hidden');
+        closeAddDesignModal();
+        renderHomeWeeklyDrops();
+        renderCatalogGrid(true);
+        showNotificationToast(
+          (currentLang === 'hi') ? 'डिजाइन सभी के लिए लाइव प्रकाशित हुआ!' : 'Design Published Live for Everyone',
+          (currentLang === 'hi') ? `${sku} अब सभी वेबसाइट विज़िटर को दिखेगा।` : `${sku} is now available to all website visitors.`
+        );
+      }
+      if (publishButton) { publishButton.disabled = false; publishButton.textContent = i18n[currentLang].publishDesignBtn || 'Publish Design'; }
+    }
+
+    // -----------------------------------------------------------------
+    // 10B. EDIT & DELETE DESIGN LOGIC (OWNER MODE)
+    // -----------------------------------------------------------------
+    let targetDeleteId = null;
+
+    function openEditDesignModal(id, event) {
+      if (event) event.stopPropagation();
+      const item = catalogItems.find(i => i.id === id);
+      if (!item) return;
+
+      refreshDesignCategorySelects(item.category, item.category);
+      document.getElementById('editDesignId').value = item.id;
+      document.getElementById('editSku').value = item.sku;
+      document.getElementById('editTitle').value = item.name || '';
+      document.getElementById('editTitleHi').value = item.nameHi || item.name || '';
+      document.getElementById('editCategory').value = item.category;
+      document.getElementById('editStatus').value = item.status;
+      document.getElementById('editDesc').value = item.desc || '';
+      document.getElementById('editImageUrl').value = item.img.startsWith('data:') ? '' : item.img;
+      document.getElementById('editImagePreview').src = item.img;
+      document.getElementById('editIsWeeklyDrop').checked = !!item.isNew;
+      const editFile = document.getElementById('editImageFile');
+      if (editFile) { editFile.value = ''; editFile.disabled = true; }
+
+      document.getElementById('editDesignModal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeEditDesignModal() {
+      document.getElementById('editDesignModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function updateEditThumbnail(url) {
+      if (url && url.trim() !== '') {
+        document.getElementById('editImagePreview').src = url.trim();
+      }
+    }
+
+    function previewEditImageUpload(fileInput) {
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('editImagePreview').src = e.target.result;
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      }
+    }
+
+    async function handleUpdateDesign(e) {
+      e.preventDefault();
+      const id = parseInt(document.getElementById('editDesignId').value);
+      const item = catalogItems.find(i => i.id === id);
+      if (!item) return;
+
+      const urlInput = document.getElementById('editImageUrl').value.trim();
+      let updatedImage = item.img;
+      if (urlInput) {
+        try {
+          const parsed = new URL(urlInput);
+          if (parsed.protocol !== 'https:') throw new Error('HTTPS required');
+          updatedImage = parsed.href;
+        } catch (_) {
+          showNotificationToast((currentLang === 'hi') ? 'गलत फोटो URL' : 'Invalid Image URL', 'Please use a valid HTTPS ImageKit URL.');
+          return;
+        }
+      }
+      item.name = document.getElementById('editTitle').value.trim();
+      item.nameHi = document.getElementById('editTitleHi').value.trim();
+      if (!item.name || !item.nameHi) {
+        showNotificationToast('Both design names are required', 'Please enter the English and Hindi design names.');
+        return;
+      }
+      item.category = document.getElementById('editCategory').value;
+      item.status = document.getElementById('editStatus').value;
+      item.desc = document.getElementById('editDesc').value.trim();
+      item.isNew = document.getElementById('editIsWeeklyDrop').checked;
+      item.img = updatedImage;
+
+      const published = await saveCatalogState();
+      if (!published) return;
+      updateStatusCounters();
+      closeEditDesignModal();
+      renderHomeWeeklyDrops();
+      renderCatalogGrid(false);
+
+      const modal = document.getElementById('imageLightboxModal');
+      if (!modal.classList.contains('hidden')) {
+        openLightbox(item.id);
+      }
+
+      const t = i18n[currentLang];
+      showNotificationToast((currentLang === 'hi') ? 'डिजाइन लाइव अपडेट हुआ' : 'Design Updated Live', `${item.sku}: ${getDesignName(item)}`);
+    }
+
+    function promptDeleteCurrentDesign() {
+      const id = parseInt(document.getElementById('editDesignId').value);
+      openDeleteConfirmModal(id);
+    }
+
+    function openDeleteConfirmModal(id) {
+      const item = catalogItems.find(i => i.id === id);
+      if (!item) return;
+
+      targetDeleteId = id;
+      document.getElementById('deleteTargetSku').textContent = `${item.sku} - ${getDesignName(item)}`;
+      document.getElementById('deleteConfirmModal').classList.remove('hidden');
+    }
+
+    function closeDeleteConfirmModal() {
+      targetDeleteId = null;
+      document.getElementById('deleteConfirmModal').classList.add('hidden');
+    }
+
+    async function executeDeleteDesign() {
+      if (!targetDeleteId) return;
+      const index = catalogItems.findIndex(i => i.id === targetDeleteId);
+      if (index !== -1) {
+        const deletedSku = catalogItems[index].sku;
+        catalogItems.splice(index, 1);
+        const published = await saveCatalogState();
+        if (!published) return;
+        updateStatusCounters();
+        closeDeleteConfirmModal();
+        closeEditDesignModal();
+        closeLightboxModal();
+        renderHomeWeeklyDrops();
+        renderCatalogGrid(true);
+
+        const t = i18n[currentLang];
+        showNotificationToast((currentLang === 'hi') ? 'डिजाइन सभी के लिए हटाया गया' : 'Design Removed from Public Catalog', `${deletedSku} removed.`);
+      }
+    }
+
+    // -----------------------------------------------------------------
+    // 11. TOAST NOTIFICATIONS & MENU EVENTS
+    // -----------------------------------------------------------------
+    function showNotificationToast(heading, detail) {
+      const toast = document.getElementById('statusToast');
+      document.getElementById('toastHeading').textContent = heading;
+      document.getElementById('toastDetail').textContent = detail;
+      toast.classList.remove('hidden');
+      setTimeout(() => { toast.classList.add('hidden'); }, 4000);
+    }
+
+    function hideToast() {
+      document.getElementById('statusToast').classList.add('hidden');
+    }
+
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+    const menuBarsIcon = document.getElementById('menuBarsIcon');
+
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', () => {
+        const isHidden = mobileMenuDropdown.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenuDropdown.classList.remove('hidden');
+          menuBarsIcon.classList.remove('fa-bars');
+          menuBarsIcon.classList.add('fa-xmark');
+        } else {
+          mobileMenuDropdown.classList.add('hidden');
+          menuBarsIcon.classList.remove('fa-xmark');
+          menuBarsIcon.classList.add('fa-bars');
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightboxModal();
+        closeOwnerPinModal();
+        closeAddDesignModal();
+        closeEditDesignModal();
+        closeDeleteConfirmModal();
+        closeBrandingModal();
+      }
+    });
+
+    window.onload = function() {
+      initApp();
+    };
+  </script>
+</body>
+</html>
