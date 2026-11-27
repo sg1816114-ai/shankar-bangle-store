@@ -239,23 +239,6 @@
         <span class="flex items-center gap-2"><i class="fa-solid fa-house text-xs"></i> <span data-i18n="navHome">Home</span></span>
         <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
       </button>
-
-      <!-- Prominent Switch to Page 2 in Mobile Menu -->
-      <button onclick="navigateTo('categories'); closeMobileMenu();" class="w-full text-left py-2.5 text-white font-bold text-sm border-b border-white/5 flex items-center justify-between bg-gold-500/10 px-3 rounded-xl border border-gold-500/30">
-        <span class="flex items-center gap-2"><i class="fa-solid fa-shapes text-gold-400"></i> <span data-i18n="navCategoriesPage">Categories &amp; Designs</span></span>
-        <span class="px-2 py-0.5 rounded-full bg-gold-500 text-royal-950 text-[10px] font-extrabold">Open Page</span>
-      </button>
-
-      <a href="#about-store" onclick="ensureHomePageSection('about-store'); closeMobileMenu();" class="mobile-nav-item block py-2 text-slate-300 hover:text-gold-400 font-medium text-sm border-b border-white/5" data-i18n="navAbout">About Us</a>
-      <a href="#contact-store" onclick="ensureHomePageSection('contact-store'); closeMobileMenu();" class="mobile-nav-item block py-2 text-slate-300 hover:text-gold-400 font-medium text-sm border-b border-white/5" data-i18n="navContact">Contact</a>
-
-      <div class="pt-2 flex flex-col gap-2">
-        <button onclick="toggleLanguage(); closeMobileMenu();" class="w-full py-2.5 px-3 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-bold flex items-center justify-center gap-2">
-          <i class="fa-solid fa-language"></i> <span id="mobileLangToggleLabel">🇮🇳 हिंदी में देखें</span>
-        </button>
-      </div>
-    </div>
-  </header>
 <!-- Page 2 Switcher Tab (Categories & Catalog) -->
           <button 
             id="navTabCategories" 
@@ -291,7 +274,57 @@
             <i class="fa-solid fa-phone"></i>
             <span data-i18n="btnCall">Call Now</span>
           </a>
-        </div>
+        </div><!-- Page 2 Switcher Tab (Categories & Catalog) -->
+          <button 
+            id="navTabCategories" 
+            onclick="navigateTo('categories')" 
+            class="px-4 py-2 rounded-xl transition flex items-center gap-2 font-bold text-slate-300 hover:text-gold-300 hover:bg-royal-900 border border-transparent hover:border-gold-500/30"
+          >
+            <i class="fa-solid fa-shapes text-gold-400"></i>
+            <span data-i18n="navCategoriesPage">Categories &amp; Designs</span>
+            <span class="px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-300 text-[10px] font-bold border border-gold-500/40">Catalog</span>
+          </button>
+
+          <a href="#about-store" onclick="ensureHomePageSection('about-store')" class="px-3.5 py-2 text-slate-300 hover:text-gold-400 transition" data-i18n="navAbout">About Us</a>
+          <a href="#contact-store" onclick="ensureHomePageSection('contact-store')" class="px-3.5 py-2 text-slate-300 hover:text-gold-400 transition" data-i18n="navContact">Contact</a>
+        </nav>
+
+        <!-- Header Actions: Direct WhatsApp & Call -->
+        <div class="flex items-center space-x-2.5">
+          <a 
+            id="headerWhatsAppBtn"
+            href="https://wa.me/919927053101?text=Namaste%20Sandeep%20ji,%20I%20am%20browsing%20the%20bangle%20designs%20on%20your%20website" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-semibold text-xs sm:text-sm shadow-md transition"
+          >
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span data-i18n="btnWhatsApp">WhatsApp</span>
+          </a>
+
+          <a 
+            href="tel:+919927053101" 
+            class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 text-royal-950 font-bold text-xs sm:text-sm hover:from-gold-400 hover:to-amber-500 shadow-md shadow-gold-500/20 transition transform active:scale-95"
+          >
+            <i class="fa-solid fa-phone"></i>
+            <span data-i18n="btnCall">Call Now</span>
+          </a>
+      <!-- Prominent Switch to Page 2 in Mobile Menu -->
+      <button onclick="navigateTo('categories'); closeMobileMenu();" class="w-full text-left py-2.5 text-white font-bold text-sm border-b border-white/5 flex items-center justify-between bg-gold-500/10 px-3 rounded-xl border border-gold-500/30">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-shapes text-gold-400"></i> <span data-i18n="navCategoriesPage">Categories &amp; Designs</span></span>
+        <span class="px-2 py-0.5 rounded-full bg-gold-500 text-royal-950 text-[10px] font-extrabold">Open Page</span>
+      </button>
+
+      <a href="#about-store" onclick="ensureHomePageSection('about-store'); closeMobileMenu();" class="mobile-nav-item block py-2 text-slate-300 hover:text-gold-400 font-medium text-sm border-b border-white/5" data-i18n="navAbout">About Us</a>
+      <a href="#contact-store" onclick="ensureHomePageSection('contact-store'); closeMobileMenu();" class="mobile-nav-item block py-2 text-slate-300 hover:text-gold-400 font-medium text-sm border-b border-white/5" data-i18n="navContact">Contact</a>
+
+      <div class="pt-2 flex flex-col gap-2">
+        <button onclick="toggleLanguage(); closeMobileMenu();" class="w-full py-2.5 px-3 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-bold flex items-center justify-center gap-2">
+          <i class="fa-solid fa-language"></i> <span id="mobileLangToggleLabel">🇮🇳 हिंदी में देखें</span>
+        </button>
+      </div>
+    </div>
+  </header>
   <!-- ========================================================================= -->
   <!-- PAGE 1: HOME VIEW (HERO BANNER, HERITAGE, GUIDES, LOWER BROWSE CATEGORIES)-->
   <!-- ========================================================================= -->
