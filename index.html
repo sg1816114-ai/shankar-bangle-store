@@ -401,6 +401,28 @@
             Shankar Bangle Store
           </h1>
 
+          <!-- Quick Switch Buttons to Jump to Page 2 -->
+          <div class="pt-4 flex flex-wrap gap-3.5 justify-center">
+            <button 
+              onclick="navigateTo('categories')" 
+              class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 text-royal-950 font-extrabold text-sm shadow-xl shadow-gold-500/20 hover:from-gold-400 hover:to-amber-500 transition transform active:scale-95"
+            >
+              <i class="fa-solid fa-shapes text-base"></i>
+              <span data-i18n="heroBtnExploreCategories">Open Categories &amp; All Designs</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+
+            <a 
+              id="heroWhatsAppBtn"
+              href="https://wa.me/919927053101?text=Namaste%20Sandeep%20ji,%20I%20am%20interested%20in%20seeing%20your%20bangle%20designs" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-semibold text-sm shadow-lg transition"
+            >
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span data-i18n="heroBtnWhatsApp">Message Sandeep Gupta</span>
+            </a>
+          </div>
         </div>
 
       </div>
@@ -731,7 +753,7 @@
   </footer>
 
   <!-- ================= FLOATING CALL & WHATSAPP BUTTONS ================= -->
-  <div class="fixed bottom-24 right-5 z-40 flex flex-col gap-3">
+  <div class="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
     <!-- Call Floating Button -->
     <a 
       href="tel:+919927053101" 
@@ -885,6 +907,8 @@
         <div>
           <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formDescLabel">Craft Description</label>
           <textarea id="newDesc" rows="2" placeholder="e.g. Fine glass bangles with exquisite stone work..." class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
+          <label class="block text-xs font-semibold text-slate-300 mb-1 mt-2" data-i18n="formDescHiLabel">Craft Description (Hindi)</label>
+          <textarea id="newDescHi" rows="2" placeholder="चूड़ी के डिजाइन का विवरण हिंदी में लिखें..." class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
         </div>
 
         <div class="space-y-2">
@@ -960,6 +984,8 @@
         <div>
           <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="formDescLabel">Craft Description</label>
           <textarea id="editDesc" rows="2" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
+          <label class="block text-xs font-semibold text-slate-300 mb-1 mt-2" data-i18n="formDescHiLabel">Craft Description (Hindi)</label>
+          <textarea id="editDescHi" rows="2" placeholder="चूड़ी के डिजाइन का विवरण हिंदी में लिखें..." class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
         </div>
 
         <div class="space-y-2">
@@ -1245,7 +1271,8 @@
         formDesignTitle: "Design Title *",
         formCategoryLabel: "Sub-Category of All Designs *",
         formInitialStatus: "Initial Availability *",
-        formDescLabel: "Craft Description",
+        formDescLabel: "Craft Description (English)",
+        formDescHiLabel: "Craft Description (Hindi)",
         formImageLabel: "ImageKit Image URL *",
         featureInWeeklyDrops: "Feature in 'Weekly Drops' shelf",
         publishDesignBtn: "Publish Design",
@@ -1386,7 +1413,8 @@
         formDesignTitle: "डिजाइन का नाम *",
         formCategoryLabel: "उप-श्रेणी (Sub-Category) *",
         formInitialStatus: "शुरुआती उपलब्धता *",
-        formDescLabel: "विवरण (Description)",
+        formDescLabel: "विवरण (English)",
+        formDescHiLabel: "विवरण (हिंदी)",
         formImageLabel: "ImageKit फोटो URL *",
         featureInWeeklyDrops: "'साप्ताहिक नए डिजाइन' में दिखाएं",
         publishDesignBtn: "डिजाइन प्रकाशित करें",
@@ -1533,11 +1561,6 @@
     function renderHomeSubcategoryCards() {
       const host = document.getElementById('homeSubcategoryCards');
       if (!host) return;
-      // Keep the six homepage category cards visible even when Netlify returns
-      // an empty or incomplete homeCategories value.
-      if (!Array.isArray(homeCategoryItems) || homeCategoryItems.length === 0) {
-        homeCategoryItems = DEFAULT_HOME_CATEGORIES.map(item => ({ ...item }));
-      }
       host.innerHTML = homeCategoryItems.map(item => `
         <div onclick="navigateTo('categories', '${escapeHtml(item.key)}')" class="group glass-card rounded-2xl overflow-hidden border border-gold-500/25 hover:border-gold-400 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 shadow-xl">
           <div class="relative h-44 overflow-hidden bg-royal-900">
@@ -2058,10 +2081,7 @@
         }
         if (Object.prototype.hasOwnProperty.call(remote, 'logo')) setAllLogoSources(remote.logo || DEFAULT_LOGO_URL);
         if (Object.prototype.hasOwnProperty.call(remote, 'banner')) setBannerSource(remote.banner || DEFAULT_BANNER_URL);
-        // An empty array from the public endpoint must NOT erase the homepage
-        // category cards. Empty means no published category settings; retain the
-        // current/default six cards until a non-empty saved list is available.
-        if (Array.isArray(remote.homeCategories) && remote.homeCategories.length > 0) {
+        if (Array.isArray(remote.homeCategories)) {
           const categoryChanged = JSON.stringify(remote.homeCategories) !== JSON.stringify(homeCategoryItems);
           if (categoryChanged) {
             homeCategoryItems = remote.homeCategories.map(item => ({ ...item }));
@@ -2364,7 +2384,7 @@
             <div class="p-4 space-y-1.5">
               <span class="text-[10px] font-bold uppercase tracking-wider text-gold-400 block">${getCategoryLabel(item.category)}</span>
               <h3 class="font-serif text-sm sm:text-base font-bold text-white group-hover:text-gold-300 transition line-clamp-1 cursor-pointer" onclick="openLightbox(${item.id})">${item.name}</h3>
-              <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed font-light">${item.desc}</p>
+              <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed font-light">${escapeHtml(currentLang === 'hi' ? (item.descHi || 'इस डिजाइन का विवरण उपलब्ध नहीं है।') : (item.desc || ''))}</p>
             </div>
           </div>
 
@@ -2537,7 +2557,7 @@
       document.getElementById('modalSku').textContent = item.sku;
       document.getElementById('modalCategory').textContent = getCategoryLabel(item.category);
       document.getElementById('modalTitle').textContent = item.name;
-      document.getElementById('modalDesc').textContent = item.desc;
+      document.getElementById('modalDesc').textContent = currentLang === 'hi' ? (item.descHi || 'इस डिजाइन का विवरण उपलब्ध नहीं है।') : (item.desc || '');
 
       const statusContainer = document.getElementById('modalStatusBadge');
       const isAvailable = (item.status === 'in_stock');
@@ -2629,7 +2649,8 @@
       const title = document.getElementById('newTitle').value.trim();
       const category = document.getElementById('newCategory').value;
       const status = document.getElementById('newStatus').value;
-      const desc = document.getElementById('newDesc').value.trim() || 'Traditional and modern glass bangle design from Shankar Bangle Store, Firozabad.';
+      const desc = document.getElementById('newDesc').value.trim();
+      const descHi = document.getElementById('newDescHi').value.trim();
       const isNew = document.getElementById('newIsWeeklyDrop').checked;
       const imgUrl = document.getElementById('newImageUrl').value.trim();
 
@@ -2645,10 +2666,10 @@
         return;
       }
 
-      saveAndAppendNewDesign(sku, title, category, status, desc, isNew, parsedImageUrl.href);
+      saveAndAppendNewDesign(sku, title, category, status, desc, descHi, isNew, parsedImageUrl.href);
     }
 
-    async function saveAndAppendNewDesign(sku, title, category, status, desc, isNew, img) {
+    async function saveAndAppendNewDesign(sku, title, category, status, desc, descHi, isNew, img) {
       const newDesign = {
         id: Date.now(),
         sku: sku,
@@ -2657,6 +2678,7 @@
         status: status,
         isNew: isNew,
         desc: desc,
+        descHi: descHi,
         img: img
       };
 
@@ -2696,6 +2718,7 @@
       document.getElementById('editCategory').value = item.category;
       document.getElementById('editStatus').value = item.status;
       document.getElementById('editDesc').value = item.desc || '';
+      document.getElementById('editDescHi').value = item.descHi || '';
       document.getElementById('editImageUrl').value = item.img.startsWith('data:') ? '' : item.img;
       document.getElementById('editImagePreview').src = item.img;
       document.getElementById('editIsWeeklyDrop').checked = !!item.isNew;
@@ -2749,6 +2772,7 @@
       item.category = document.getElementById('editCategory').value;
       item.status = document.getElementById('editStatus').value;
       item.desc = document.getElementById('editDesc').value.trim();
+      item.descHi = document.getElementById('editDescHi').value.trim();
       item.isNew = document.getElementById('editIsWeeklyDrop').checked;
       item.img = updatedImage;
 
