@@ -1533,6 +1533,11 @@
     function renderHomeSubcategoryCards() {
       const host = document.getElementById('homeSubcategoryCards');
       if (!host) return;
+      // Keep the six homepage category cards visible even when Netlify returns
+      // an empty or incomplete homeCategories value.
+      if (!Array.isArray(homeCategoryItems) || homeCategoryItems.length === 0) {
+        homeCategoryItems = DEFAULT_HOME_CATEGORIES.map(item => ({ ...item }));
+      }
       host.innerHTML = homeCategoryItems.map(item => `
         <div onclick="navigateTo('categories', '${escapeHtml(item.key)}')" class="group glass-card rounded-2xl overflow-hidden border border-gold-500/25 hover:border-gold-400 transition-all duration-300 cursor-pointer hover:-translate-y-1.5 shadow-xl">
           <div class="relative h-44 overflow-hidden bg-royal-900">
@@ -2053,7 +2058,10 @@
         }
         if (Object.prototype.hasOwnProperty.call(remote, 'logo')) setAllLogoSources(remote.logo || DEFAULT_LOGO_URL);
         if (Object.prototype.hasOwnProperty.call(remote, 'banner')) setBannerSource(remote.banner || DEFAULT_BANNER_URL);
-        if (Array.isArray(remote.homeCategories)) {
+        // An empty array from the public endpoint must NOT erase the homepage
+        // category cards. Empty means no published category settings; retain the
+        // current/default six cards until a non-empty saved list is available.
+        if (Array.isArray(remote.homeCategories) && remote.homeCategories.length > 0) {
           const categoryChanged = JSON.stringify(remote.homeCategories) !== JSON.stringify(homeCategoryItems);
           if (categoryChanged) {
             homeCategoryItems = remote.homeCategories.map(item => ({ ...item }));
