@@ -862,14 +862,15 @@
           <input type="text" id="newSku" required placeholder="e.g. SBS-151" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs font-mono focus:outline-none focus:border-gold-400">
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="rounded-xl border border-gold-500/30 bg-royal-950/50 p-3 space-y-3">
+          <p class="text-xs font-bold text-gold-300">Design Name / डिज़ाइन का नाम</p>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Design Name (English) *</label>
-            <input type="text" id="newTitle" required placeholder="e.g. Royal Red Stone Bangles" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+            <label for="newTitle" class="block text-xs font-semibold text-slate-200 mb-1">English Design Name *</label>
+            <input type="text" id="newTitle" required placeholder="e.g. Royal Red Stone Bangles" class="w-full px-3 py-2.5 rounded-xl bg-royal-950 border border-slate-600 text-white text-sm focus:outline-none focus:border-gold-400">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Design Name (Hindi)</label>
-            <input type="text" id="newTitleHi" placeholder="जैसे: रॉयल लाल स्टोन चूड़ियाँ" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+            <label for="newTitleHi" class="block text-xs font-semibold text-gold-200 mb-1">Hindi Design Name / हिंदी में डिज़ाइन का नाम</label>
+            <input type="text" id="newTitleHi" lang="hi" placeholder="जैसे: रॉयल लाल स्टोन चूड़ियाँ" class="w-full px-3 py-2.5 rounded-xl bg-royal-950 border border-gold-500/50 text-white text-sm focus:outline-none focus:border-gold-400">
           </div>
         </div>
 
@@ -888,14 +889,15 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="rounded-xl border border-gold-500/30 bg-royal-950/50 p-3 space-y-3">
+          <p class="text-xs font-bold text-gold-300">Design Description / डिज़ाइन का विवरण</p>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Description (English)</label>
-            <textarea id="newDesc" rows="3" placeholder="Write the design description in English..." class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
+            <label for="newDesc" class="block text-xs font-semibold text-slate-200 mb-1">English Description</label>
+            <textarea id="newDesc" rows="3" placeholder="Write the design description in English..." class="w-full px-3 py-2.5 rounded-xl bg-royal-950 border border-slate-600 text-white text-sm focus:outline-none focus:border-gold-400"></textarea>
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Description (Hindi)</label>
-            <textarea id="newDescHi" rows="3" placeholder="डिजाइन का विवरण हिंदी में लिखें..." class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
+            <label for="newDescHi" class="block text-xs font-semibold text-gold-200 mb-1">Hindi Description / हिंदी में डिज़ाइन का विवरण</label>
+            <textarea id="newDescHi" lang="hi" rows="3" placeholder="डिजाइन का विवरण हिंदी में लिखें..." class="w-full px-3 py-2.5 rounded-xl bg-royal-950 border border-gold-500/50 text-white text-sm focus:outline-none focus:border-gold-400"></textarea>
           </div>
         </div>
 
@@ -949,14 +951,15 @@
           <input type="text" id="editSku" disabled class="w-full px-3 py-2 rounded-xl bg-royal-950/60 border border-slate-800 text-gold-300 text-xs font-mono cursor-not-allowed">
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="rounded-xl border border-gold-500/30 bg-royal-950/50 p-3 space-y-3">
+          <p class="text-xs font-bold text-gold-300">Design Name / डिज़ाइन का नाम</p>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Design Name (English) *</label>
-            <input type="text" id="editTitle" required class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+            <label for="editTitle" class="block text-xs font-semibold text-slate-200 mb-1">English Design Name *</label>
+            <input type="text" id="editTitle" required class="w-full px-3 py-2.5 rounded-xl bg-royal-950 border border-slate-600 text-white text-sm focus:outline-none focus:border-gold-400">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Design Name (Hindi)</label>
-            <input type="text" id="editTitleHi" placeholder="हिंदी में डिजाइन का नाम" class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400">
+            <label for="editTitleHi" class="block text-xs font-semibold text-gold-200 mb-1">Hindi Design Name / हिंदी में डिज़ाइन का नाम</label>
+            <input type="text" id="editTitleHi" lang="hi" placeholder="हिंदी में डिजाइन का नाम" class="w-full px-3 py-2.5 rounded-xl bg-royal-950 border border-gold-500/50 text-white text-sm focus:outline-none focus:border-gold-400">
           </div>
         </div>
 
@@ -975,14 +978,15 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="rounded-xl border border-gold-500/30 bg-royal-950/50 p-3 space-y-3">
+          <p class="text-xs font-bold text-gold-300">Design Description / डिज़ाइन का विवरण</p>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Description (English)</label>
-            <textarea id="editDesc" rows="3" placeholder="Write the design description in English..." class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
+            <label for="editDesc" class="block text-xs font-semibold text-slate-200 mb-1">English Description</label>
+            <textarea id="editDesc" rows="3" placeholder="Write the design description in English..." class="w-full px-3 py-2.5 rounded-xl bg-royal-950 border border-slate-600 text-white text-sm focus:outline-none focus:border-gold-400"></textarea>
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 mb-1">Description (Hindi)</label>
-            <textarea id="editDescHi" rows="3" placeholder="डिजाइन का विवरण हिंदी में लिखें..." class="w-full px-3 py-2 rounded-xl bg-royal-950 border border-slate-700 text-white text-xs focus:outline-none focus:border-gold-400"></textarea>
+            <label for="editDescHi" class="block text-xs font-semibold text-gold-200 mb-1">Hindi Description / हिंदी में डिज़ाइन का विवरण</label>
+            <textarea id="editDescHi" lang="hi" rows="3" placeholder="डिजाइन का विवरण हिंदी में लिखें..." class="w-full px-3 py-2.5 rounded-xl bg-royal-950 border border-gold-500/50 text-white text-sm focus:outline-none focus:border-gold-400"></textarea>
           </div>
         </div>
 
